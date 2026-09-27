@@ -19,10 +19,10 @@ Source: [PRTS wiki](https://prts.wiki/w/%E9%A6%96%E9%A1%B5) · fetched by `fetch
 | `originium-pure` | [文件:道具 至纯源石.png](https://media.prts.wiki/8/8a/%E9%81%93%E5%85%B7_%E8%87%B3%E7%BA%AF%E6%BA%90%E7%9F%B3.png) | Pure originium. Section marker above the wallpaper grid. |
 | `rhodes-elite` | [文件:Logo 罗德岛-精英干员.png](https://media.prts.wiki/0/0f/Logo_%E7%BD%97%E5%BE%B7%E5%B2%9B-%E7%B2%BE%E8%8B%B1%E5%B9%B2%E5%91%98.png) | Rhodes Island elite-operator emblem. Composer dock ribbon and section badge. |
 | `op-kaltsit` | [文件:头像 凯尔希.png](https://media.prts.wiki/c/c5/%E5%A4%B4%E5%83%8F_%E5%87%AF%E5%B0%94%E5%B8%8C.png) | Kal'tsit operator portrait (凯尔希), 256x256. Assigned to green wallpapers. |
-| `class-caster-lg` | [文件:图标 职业 术师 大图 白.png](https://media.prts.wiki/d/d4/%E5%9B%BE%E6%A0%87_%E8%81%8C%E4%B8%9A_%E6%9C%AF%E5%B8%88_%E5%A4%A7%E5%9B%BE_%E7%99%BD.png) | Caster class icon, white, 108x109. |
 | `sign-amiya` | [文件:收藏贴 阿米娅签名.png](https://media.prts.wiki/6/60/%E6%94%B6%E8%97%8F%E8%B4%B4_%E9%98%BF%E7%B1%B3%E5%A8%85%E7%AD%BE%E5%90%8D.png) | Amiya's own handwritten signature, 228x118. Signs the wallpaper picker's header plate, inverted into the skin's amber. |
-| `amiya-guard` | [文件:头像 阿米娅(近卫).png](https://media.prts.wiki/5/5b/%E5%A4%B4%E5%83%8F_%E9%98%BF%E7%B1%B3%E5%A8%85%28%E8%BF%91%E5%8D%AB%29.png) | Guard-class Amiya, 180x180, transparent. Held for the panel's operator plate — the form she takes when the story turns. |
 | `icon-time` | [文件:图标 时间.png](https://media.prts.wiki/a/a8/%E5%9B%BE%E6%A0%87_%E6%97%B6%E9%97%B4.png) | The game's own clock glyph, 33x33. Replaces the host's generic clock SVG in the context-insight panel header. |
+| `logo-ursus` | [文件:Logo 乌萨斯.png](https://media.prts.wiki/d/d8/Logo_%E4%B9%8C%E8%90%A8%E6%96%AF.png) | Ursus national emblem, 510x510 white line art. Leads the consumption pill in the composer's instrument strip (tokens spent / cache hits). |
+| `logo-sherag` | [文件:Logo 谢拉格.png](https://media.prts.wiki/d/d8/Logo_%E8%B0%A2%E6%8B%89%E6%A0%BC.png) | Sherag (Kjerag) national emblem, 510x510 white line art. Leads the activity pill in the composer's instrument strip (turns / steps / tok per second). |
 
 Authored rather than sourced (these are interface affordances, not game art):
 - `hazard-rule`
@@ -36,4 +36,4 @@ Authored rather than sourced (these are interface affordances, not game art):
 - `wallpaper-step`
 
 Also fetched and kept in `prts/` but not inlined, because nothing in the
-current skin references them: `op-rosmontis`, `op-rosmontis-alt`, `op-chen`, `op-exusiai`, `op-silverash`, `class-vanguard`, `class-guard`, `class-defender`, `class-sniper`, `class-caster`, `class-medic`, `class-supporter`, `class-specialist`, `class-vanguard-lg`, `class-guard-lg`, `class-defender-lg`, `class-sniper-lg`, `class-medic-lg`, `class-supporter-lg`, `class-specialist-lg`, `amiya-elite`, `logo-columbia`, `logo-victoria`, `logo-ursus`.
+current skin references them: `op-rosmontis`, `op-rosmontis-alt`, `op-chen`, `op-exusiai`, `op-silverash`, `class-vanguard`, `class-guard`, `class-defender`, `class-sniper`, `class-caster`, `class-medic`, `class-supporter`, `class-specialist`, `class-vanguard-lg`, `class-guard-lg`, `class-defender-lg`, `class-sniper-lg`, `class-caster-lg`, `class-medic-lg`, `class-supporter-lg`, `class-specialist-lg`, `amiya-elite`, `amiya-guard`, `logo-columbia`, `logo-victoria`, `logo-leithanien`, `logo-kazimierz`, `logo-iberia`.
