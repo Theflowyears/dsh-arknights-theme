@@ -10,13 +10,17 @@ Source: [PRTS wiki](https://prts.wiki/w/%E9%A6%96%E9%A1%B5) · fetched by `fetch
 
 | Bundle key | PRTS file | Role |
 | --- | --- | --- |
+| `amiya-special` | 文件:Avatar special 35.png（用户提供） | New-session glyph: the illustration the user supplied. It is a 150x150 scene with a black vignette reaching every edge and no transparency (0.0% of pixels are clear), so it is not usable as-is at glyph size — the `medallion` transform cuts it to the lit subject and masks it to a soft circle, which removes the frame and lifts the exposure. |
+| `sign-kaltsit` | 干员签名 · 凯尔希（用户提供的本地文件 `signatures/kaltsit.png`） | Kal'tsit's handwritten signature, 190x55, dark ink on transparency — the occupant of the dispatch bar slot between the wallpaper controls and the model switcher. PRTS hosts only Amiya's autograph, so this comes from the `signatures/` drop folder; the slot falls back to `sign-amiya` if the file is not there. |
 | `rhodes-island` | [文件:Logo 罗德岛.png](https://media.prts.wiki/4/41/Logo_%E7%BD%97%E5%BE%B7%E5%B2%9B.png) | Sidebar brand mark. 510x510, the faction emblem. |
 | `amiya-avatar` | [文件:头像 阿米娅.png](https://media.prts.wiki/3/36/%E5%A4%B4%E5%83%8F_%E9%98%BF%E7%B1%B3%E5%A8%85.png) | Amiya operator avatar. Picker header and the footer wallpaper button. |
 | `amiya-avatar-skin2` | [文件:头像 阿米娅 skin2.png](https://media.prts.wiki/b/b4/%E5%A4%B4%E5%83%8F_%E9%98%BF%E7%B1%B3%E5%A8%85_skin2.png) | Amiya alternate skin avatar, used as the faint backdrop watermark. |
 | `originium` | [文件:道具 源石碎片.png](https://media.prts.wiki/b/b5/%E9%81%93%E5%85%B7_%E6%BA%90%E7%9F%B3%E7%A2%8E%E7%89%87.png) | Originium shard. Sidebar panel-toggle glyph and small bullet motif. |
 | `originium-pure` | [文件:道具 至纯源石.png](https://media.prts.wiki/8/8a/%E9%81%93%E5%85%B7_%E8%87%B3%E7%BA%AF%E6%BA%90%E7%9F%B3.png) | Pure originium. Section marker above the wallpaper grid. |
 | `rhodes-elite` | [文件:Logo 罗德岛-精英干员.png](https://media.prts.wiki/0/0f/Logo_%E7%BD%97%E5%BE%B7%E5%B2%9B-%E7%B2%BE%E8%8B%B1%E5%B9%B2%E5%91%98.png) | Rhodes Island elite-operator emblem. Composer dock ribbon and section badge. |
-| `class-caster` | [文件:图标 职业 术师.png](https://media.prts.wiki/2/23/%E5%9B%BE%E6%A0%87_%E8%81%8C%E4%B8%9A_%E6%9C%AF%E5%B8%88.png) | Caster class icon, 26x26 — Amiya's class, so it is the new-session glyph. |
+| `op-kaltsit` | [文件:头像 凯尔希.png](https://media.prts.wiki/c/c5/%E5%A4%B4%E5%83%8F_%E5%87%AF%E5%B0%94%E5%B8%8C.png) | Kal'tsit operator portrait (凯尔希), 256x256. Assigned to green wallpapers. |
+| `sign-amiya` | [文件:收藏贴 阿米娅签名.png](https://media.prts.wiki/6/60/%E6%94%B6%E8%97%8F%E8%B4%B4_%E9%98%BF%E7%B1%B3%E5%A8%85%E7%AD%BE%E5%90%8D.png) | Amiya's own handwritten signature, 228x118. Signs the wallpaper picker's header plate, inverted into the skin's amber. |
+| `icon-time` | [文件:图标 时间.png](https://media.prts.wiki/a/a8/%E5%9B%BE%E6%A0%87_%E6%97%B6%E9%97%B4.png) | The game's own clock glyph, 33x33. Replaces the host's generic clock SVG in the context-insight panel header. |
 
 Authored rather than sourced (these are interface affordances, not game art):
 - `hazard-rule`
@@ -30,4 +34,4 @@ Authored rather than sourced (these are interface affordances, not game art):
 - `wallpaper-step`
 
 Also fetched and kept in `prts/` but not inlined, because nothing in the
-current skin references them: `op-rosmontis`, `op-rosmontis-alt`, `op-kaltsit`, `op-chen`, `op-exusiai`, `op-silverash`, `class-vanguard`, `class-guard`, `class-defender`, `class-sniper`, `class-medic`, `class-supporter`, `class-specialist`, `class-vanguard-lg`, `class-guard-lg`, `class-defender-lg`, `class-sniper-lg`, `class-caster-lg`, `class-medic-lg`, `class-supporter-lg`, `class-specialist-lg`.
+current skin references them: `op-rosmontis`, `op-rosmontis-alt`, `op-chen`, `op-exusiai`, `op-silverash`, `class-vanguard`, `class-guard`, `class-defender`, `class-sniper`, `class-caster`, `class-medic`, `class-supporter`, `class-specialist`, `class-vanguard-lg`, `class-guard-lg`, `class-defender-lg`, `class-sniper-lg`, `class-caster-lg`, `class-medic-lg`, `class-supporter-lg`, `class-specialist-lg`, `amiya-elite`, `amiya-guard`, `logo-columbia`, `logo-victoria`, `logo-ursus`.

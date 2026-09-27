@@ -1,6 +1,6 @@
 {
   "name": "dsh-arknights-theme",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Arknights theme pack for the DSH Web GUI: wallpaper skin with saturation-driven edge blur, an acrylic sidebar, a Rhodes Island icon treatment, and a one-click wallpaper picker.",
   "type": "module",
   "main": "lib/index.js",

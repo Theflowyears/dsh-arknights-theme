@@ -28,6 +28,9 @@ Requires a DSH build whose `@deepseek-ai/cordis` is 4.x. Restart `dsh web` after
 - **一键换壁纸**：选择器显示高清预览图（640×360）、沉浸度与实测对比度；另有「切换」按钮一键下一张
   （Shift 反向）。选择会被记住，重启后仍在。
 - **罗德岛图标体系**：文件夹、折叠、面板等图标换成 PRTS 素材。
+- **签名的权限批准条**：工具请求授权时弹出的确认卡上，**「允许」带阿米娅的签名、「拒绝」带凯尔希的签名**——
+  跟签批一样，每个签名落在各自按钮的文字后面。签名用图片的 alpha 通道上色（`mask-image`），所以不会是
+  「浅色盖浅色」那种看不见的效果。
 
 ## 截图 / Screenshots
 
@@ -36,8 +39,11 @@ Requires a DSH build whose `@deepseek-ai/cordis` is 4.x. Restart `dsh web` after
 ## 素材与版权 / Assets and rights
 
 **代码 MIT；美术素材不是。** 壁纸版权归鹰角网络（Hypergryph）所有，**每张插画仍归其画师本人所有**；
-图标取自 PRTS Wiki。素材仅供个人本地使用，请勿商用或再分发。逐张署名表在
-[ARTWORK-ATTRIBUTION.md](./ARTWORK-ATTRIBUTION.md)，图标来源在 [ICON-ATTRIBUTION.md](./ICON-ATTRIBUTION.md)。
+图标取自 PRTS Wiki。素材仅供个人本地使用，请勿商用或再分发。画师名单见
+[ARTWORK-ATTRIBUTION.md](./ARTWORK-ATTRIBUTION.md)（壁纸选择界面里也有一份可折叠的名单），图标来源在
+[ICON-ATTRIBUTION.md](./ICON-ATTRIBUTION.md)。
+
+**画师 / Illustrators：** 阿没MEInoss · soho · ぷらねっと · NUEE · 史里爬 · 最上-川 · Coomlee · momostima
 
 ---
 
@@ -242,16 +248,26 @@ Specifically, the skin uses these PRTS assets:
 | --- | --- |
 | `sidebar.brand.mark` | `Logo 罗德岛.png` — the Rhodes Island emblem |
 | Sidebar wordmark | text (`RHODES ISLAND` / `AMIYA / DSH`) |
-| New-session glyph | `图标 职业 术师.png` — **Amiya's own class**, the Caster crest |
+| New-session glyph | the supplied `Avatar_special_35.png`, cut to a lit circle at 28px. The file is a 150×150 *scene* with a black vignette on every edge and no transparency, so it is passed through the `medallion` transform: the crop locks onto the brightest mass, a soft circular mask drops the frame, and gamma compresses the highlights (a plain brightness lift turned it into a white blob — the disc now measures 99 mean luma with no clipped pixels) |
 | Workspace / working-directory glyph | `道具 源石碎片.png`, lifted to a pale steel silhouette; amber `道具 至纯源石.png` on the active row |
 | Footer wallpaper button | `头像 阿米娅.png` — Amiya, cropped round behind an amber ring |
 | Blank-session hero | `头像 阿米娅.png`, glowing |
 | Composer control | the current picture's own thumbnail; opens the picker |
 | Composer dock ribbon | `Logo 罗德岛-精英干员.png` — the Rhodes Island elite emblem |
-| Picker header | Amiya's portrait |
+| Dispatch bar signature | Kal'tsit's autograph from `signatures/kaltsit.png`, riding in the control row's trailing group — between the wallpaper controls and the model switcher. It is recoloured through `mask-image` (the art supplies only its alpha) rather than a filter chain: `invert(1) sepia(1)` on black ink yields pale yellow, which measured 1.02:1 on the light palette, i.e. invisible. It is now `rgb(255 206 98)` on the dark glass (6.2:1) and `rgb(74 44 0)` on the light (4.8:1), dilated 0.5px to thicken strokes that are barely a pixel wide. Amiya's PRTS autograph is the fallback if the file goes missing |
+| Picker header signature | `收藏贴 阿米娅签名.png` — Amiya's own handwriting (11.8:1 on the picker's dark plate). A **separate slot** from the dispatch bar's: they were one slot for a while, and swapping it to Kal'tsit silently took Amiya's off the picker |
+| Instrument strip glyph | `图标 时间.png` — the game's clock, replacing the host's gauge icon in the first session-stats pill |
+| Approval panel | the host's permission prompt (`[data-approval-key]`), signed. 允许 carries Amiya's autograph, 拒绝 carries Kal'tsit's, each riding *inside* its own button after the label — the primitive Button is `display: inline-flex` with a 4px gap, so a pseudo-element lands after the text and no markup is invented. The refusal is outlined, so its ink sits on the card's own glass and takes the measured amber; the approval is filled from a host theme the skin cannot read, so its ink inherits the button's own `color` |
 | Picker cells | the picture's own thumbnail, its number and its analysis label |
+| Picker footer | the illustrator list, collapsed into a `<details>` |
 | Corner watermark | `头像 阿米娅 skin2.png`, desaturated and blown out to a pale silhouette |
 | Section and active marks | `道具 至纯源石.png` |
+
+**Wallpaper illustrators.** The set was supplied as a group without a file-by-file
+mapping, so the names are credited as a group rather than guessed per picture:
+阿没MEInoss · soho · ぷらねっと · NUEE · 史里爬 · 最上-川 · Coomlee · momostima.
+The picker carries the same list in a collapsed `<details>`, and
+`ARTWORK-ATTRIBUTION.md` in the published repository holds the long form.
 
 **Authored rather than sourced** (interface affordances, not game art — a game
 asset pressed into a fold button reads as an unidentifiable smudge at 18px):
