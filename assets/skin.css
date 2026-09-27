@@ -459,6 +459,19 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__sub 
   height: 100%;
   object-fit: contain;
 }
+/*
+ * The wordmark's own fill is `#ffffff`. That is right on the dark glass and nearly
+ * invisible on the light one — the hero sits on the same solved glass as the signatures, so
+ * the light palette is a light plate. It is therefore recoloured per palette: knocked down
+ * to black ink where the user asked for it, left white where black would disappear.
+ * `brightness(0)` keeps the alpha, so only the letterforms go black.
+ */
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-hero img {
+  filter: brightness(0) opacity(0.9);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-hero {
+  filter: drop-shadow(0 0 14px rgb(154 103 16 / 20%));
+}
 
 /* The sidebar-foot wallpaper control. */
 .amiya-action {
