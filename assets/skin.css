@@ -1,0 +1,1100 @@
+/* ==========================================================================
+   dsh-amiya-wallpaper — Arknights / Rhodes Island skin
+   --------------------------------------------------------------------------
+   Structure and the reasons for it:
+
+   1. **Everything is scoped to `html[data-amiya-skin="1"]`.** The host half
+      injects a one-line script into index.html that sets that attribute before
+      the body renders, plus a <link> to this file. So this stylesheet is inert
+      unless the plugin is mounted, it applies before the first paint, and the
+      attribute lifts specificity above the shipped one-class rules without
+      reaching for `!important` everywhere.
+
+   2. **The wallpaper is its own fixed layer, with the app stacked over it.** A
+      background on the root element sits *under* everything the shell paints, so
+      any opaque surface above it hides the picture — which is exactly how the
+      wallpaper disappeared once. A layer with `#root` explicitly above it does
+      not have that failure mode.
+
+   3. **The tokens are declared here, in CSS, not applied from JavaScript.**
+      Nothing about readability may depend on a service being up when the plugin
+      mounts. The per-wallpaper solved opacities arrive as custom properties (with
+      readable fallbacks in the var() chain), and both palette modes are covered
+      by keying off the `data-ds-dark-theme` attribute the theme presenter
+      maintains.
+
+      Text colour is never overridden: it comes from the active palette, so it is
+      always the correct polarity for that palette's surfaces.
+
+   4. **Nothing here changes geometry.** Frames use `outline` (which does not
+      participate in layout) rather than `border`, and no rule sets width, height,
+      margin, padding or display on anything the shell owns. The one exception is
+      the acrylic column, which is explained where it appears.
+
+   The mount contract follows the beautiCode DSH bridge, which solved these same
+   problems first: https://github.com/starsstreaming/beautiCode
+   ========================================================================== */
+
+/* --- 0. The contract: layer, shell transparency, palette ------------------ */
+
+html[data-amiya-skin='1'] {
+  background-color: #05070a;
+  /* Fallbacks so that even a stylesheet loaded without its client half paints a
+     wallpaper instead of an empty canvas. */
+  --dsh-amiya-full: var(--dsh-amiya-wide-image, url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-wide.webp"));
+  --dsh-amiya-accent: #f2b544;
+}
+
+/* The wallpaper layer. The vignette rides on top of the picture, and the 32px
+   LQIP underneath it, so the first frame is never a blank slate while the full
+   asset decodes. */
+html[data-amiya-skin='1'] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #05070a;
+  background-image:
+    radial-gradient(125% 95% at 50% 36%, rgb(4 6 9 / 0%) 30%, rgb(4 6 9 / 58%) 100%),
+    var(--dsh-amiya-full, none),
+    var(--dsh-amiya-lqip, url("data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBQCdASogABIAPulkqk6pJaOiMBgIASAdCWcAwNwQ8CK5S55s0T+buEm3ls76NaWyAAD+70Mmcgf+KlFr7gw5ejsjrJy7JIIaVK51ENFqLNZQ3t+30ULIXMbe6FGanqJkYIcQoAA="));
+  background-size: cover, cover, cover;
+  background-position: center center, center center, center center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed;
+}
+
+/* The generated assets come in a 16:9 and a 3:4 cut. Below 3:2 the wide cut would
+   crop the composition away at the sides, so the tall cut takes over. */
+@media (max-aspect-ratio: 3 / 2) {
+  html[data-amiya-skin='1'] {
+    --dsh-amiya-full: var(
+      --dsh-amiya-narrow-image,
+      url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-narrow.webp"),
+      var(--dsh-amiya-wide-image, url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-wide.webp"))
+    );
+  }
+}
+
+/* The shell must be see-through, and the application must sit above the layer. */
+html[data-amiya-skin='1'],
+html[data-amiya-skin='1'] body,
+html[data-amiya-skin='1'] #root {
+  background-color: transparent !important;
+}
+html[data-amiya-skin='1'] #root {
+  position: relative;
+  z-index: 1;
+}
+
+/* The interface's own surfaces. The opacity of each is solved per wallpaper and
+   per palette by the build step and published as a custom property; the fallbacks
+   are a readable static set, so a failed client half degrades to "readable" rather
+   than to "invisible text". */
+html[data-amiya-skin='1'] body[data-ds-dark-theme] {
+  --dsw-alias-bg-base: var(--dsh-amiya-veil-base, rgb(9 12 17 / 46%));
+  --dsw-alias-bg-layer-1: var(--dsh-amiya-veil-layer-1, rgb(16 20 27 / 62%));
+  --dsw-alias-bg-layer-2: var(--dsh-amiya-veil-layer-2, rgb(22 27 35 / 72%));
+  --dsw-alias-bg-layer-3: var(--dsh-amiya-veil-layer-3, rgb(9 12 17 / 88%));
+  --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay, rgb(13 17 23 / 90%));
+  --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask, rgb(3 5 8 / 62%));
+  --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform, rgb(9 12 17 / 78%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar, rgb(10 13 18 / 44%));
+  --dsw-specific-tip: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-input-major: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-bubble: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-bubble-highlight: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-menu: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-selector: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-login-input: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
+  --dsw-specific-sidebar-nav-item-active: rgb(242 181 68 / 18%);
+  --dsw-specific-sidebar-nav-item-hover: rgb(242 181 68 / 10%);
+  --dsw-specific-sidebar-nav-item-active-accent: rgb(242 181 68 / 60%);
+  --dsw-alias-interactive-bg-hover: rgb(242 181 68 / 14%);
+  --dsw-alias-interactive-bg-hover-danger: rgb(220 90 90 / 20%);
+  /* Arknights' warning family is amber, so the approval card's border and its
+     warning strip become the interface's own accent rather than an unrelated
+     orange. */
+  --dsw-alias-state-warn-primary: #f2b544;
+  --dsw-alias-state-warn-secondary: rgb(242 181 68 / 52%);
+  --dsw-alias-state-warn-tertiary: rgb(242 181 68 / 14%);
+  --dsw-alias-border-l1: rgb(242 181 68 / 18%);
+  --dsw-alias-border-l2: rgb(242 181 68 / 34%);
+  --dsw-alias-brand-primary: #f2b544;
+  /* The adaptive ink. Hue and a touch of saturation come from the picture, so
+     the interface is warm over a warm wallpaper and cool over a cold one — the
+     text is never one of three greys. Lightness is solved per wallpaper against
+     the worst surface the text can sit on, and polarity follows the palette, so
+     this cannot repeat the white-on-white flip. */
+  --dsw-alias-label-primary: var(--dsh-amiya-ink, rgb(242 236 226 / 100%));
+  --dsw-alias-label-secondary: var(--dsh-amiya-ink-2, rgb(219 212 200 / 100%));
+  --dsw-alias-label-tertiary: var(--dsh-amiya-ink-3, rgb(180 172 160 / 100%));
+  --dsw-alias-label-dimmed: var(--dsh-amiya-ink-4, rgb(138 131 120 / 100%));
+  --dsw-alias-label-caption: var(--dsw-alias-label-tertiary);
+
+
+
+}
+
+/* The light palette needs the opposite polarity: a light veil, and the darker
+   amber that stays visible against it. */
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) {
+  --dsw-alias-bg-base: var(--dsh-amiya-veil-base-l, rgb(247 248 250 / 58%));
+  --dsw-alias-bg-layer-1: var(--dsh-amiya-veil-layer-1-l, rgb(250 251 252 / 72%));
+  --dsw-alias-bg-layer-2: var(--dsh-amiya-veil-layer-2-l, rgb(252 253 254 / 82%));
+  --dsw-alias-bg-layer-3: var(--dsh-amiya-veil-layer-3-l, rgb(252 253 254 / 94%));
+  --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay-l, rgb(250 251 252 / 94%));
+  --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask-l, rgb(24 26 30 / 34%));
+  --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform-l, rgb(247 248 250 / 80%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar-l, rgb(247 248 250 / 52%));
+  --dsw-specific-tip: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-input-major: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-bubble: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-bubble-highlight: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-menu: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-selector: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-login-input: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
+  --dsw-specific-sidebar-nav-item-active: rgb(154 103 16 / 18%);
+  --dsw-specific-sidebar-nav-item-hover: rgb(154 103 16 / 10%);
+  --dsw-specific-sidebar-nav-item-active-accent: rgb(154 103 16 / 60%);
+  --dsw-alias-interactive-bg-hover: rgb(154 103 16 / 14%);
+  --dsw-alias-interactive-bg-hover-danger: rgb(190 60 60 / 16%);
+  --dsw-alias-state-warn-primary: #8a5a06;
+  --dsw-alias-state-warn-secondary: rgb(154 103 16 / 46%);
+  --dsw-alias-state-warn-tertiary: rgb(154 103 16 / 12%);
+  --dsw-alias-border-l1: rgb(146 100 12 / 30%);
+  --dsw-alias-border-l2: rgb(146 100 12 / 48%);
+  --dsw-alias-brand-primary: #9a6710;
+  /* The adaptive ink. Hue and a touch of saturation come from the picture, so
+     the interface is warm over a warm wallpaper and cool over a cold one — the
+     text is never one of three greys. Lightness is solved per wallpaper against
+     the worst surface the text can sit on, and polarity follows the palette, so
+     this cannot repeat the white-on-white flip. */
+  --dsw-alias-label-primary: var(--dsh-amiya-ink-l, rgb(26 22 17 / 100%));
+  --dsw-alias-label-secondary: var(--dsh-amiya-ink-2-l, rgb(48 42 34 / 100%));
+  --dsw-alias-label-tertiary: var(--dsh-amiya-ink-3-l, rgb(78 70 58 / 100%));
+  --dsw-alias-label-dimmed: var(--dsh-amiya-ink-4-l, rgb(112 103 90 / 100%));
+  --dsw-alias-label-caption: var(--dsw-alias-label-tertiary);
+
+
+
+}
+
+/* --- 1. The legibility margin -------------------------------------------- */
+/* The solved opacities already hold the required contrast on every labelled
+   surface. This shadow adds margin for text sitting straight on the wallpaper,
+   and is paint-only, so it cannot disturb layout. */
+html[data-amiya-skin='1'] body[data-ds-dark-theme] [class*='_centerCol'] {
+  text-shadow: 0 1px 2px rgb(0 0 0 / 45%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_centerCol'] {
+  text-shadow: 0 1px 2px rgb(255 255 255 / 60%);
+}
+
+/* --- 2. The acrylic left column ------------------------------------------
+   The frost sits on a **pseudo-element**, never on the column itself. That is not
+   a style choice: `backdrop-filter` makes its element the containing block for
+   every `position: fixed` descendant, and the settings panel renders inside the
+   sidebar column. Putting the frost on the column trapped that panel inside the
+   column's ~280px box — it opened as a cramped, unreadable patch in the sidebar
+   instead of a centred dialog. A pseudo-element is not an ancestor of the real
+   children, so the containment does not apply.
+   `position: relative` on the column is safe: unlike filter/transform, it does
+   not capture fixed descendants. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) {
+  position: relative;
+  background: transparent !important;
+  border-right: 1px solid rgb(242 181 68 / 20%) !important;
+  box-shadow:
+    inset -1px 0 0 rgb(255 255 255 / 6%),
+    28px 0 60px -20px rgb(0 0 0 / 55%);
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog']))::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
+  backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])):hover {
+  border-right-color: rgb(242 181 68 / 34%) !important;
+}
+
+/* --- 3. Rhodes Island iconography ---------------------------------------- */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_newSession'],
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_newSession'] > svg,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle'] > svg {
+  display: none;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_newSession']::before,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle']::before {
+  content: '';
+  flex: none;
+  width: 18px;
+  height: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 6px rgb(242 181 68 / 25%));
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_newSession']::before {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAC0ElEQVR4nL2Wz0sUYRjHP++40+6au7jiH7GUHuwH7CIdGugw+CcENuRBCUFIJ9zwFGxCL3VQBCWDQQoxiLDLHpS9FMwIiQcRZKHoJARbiOCuabvbYX/k7FrmaD7wMjzvPPN+3u/M933fEZ2dnSXOIZTzgAAoQggON0VRUBSFvr4+FhcXcRyHaDSKWiigFgrU1/9r89WTdV1nfHy8ludyOWKxGJ82Nk6lyCeE+CPkqLhQLHoDHU7qIUtLS6yvr+M4jqfBXaBgRVH/0JDrRnJsjFQqRb6SByMRAPZ3djyBaq6LxWK1znQ6TSqVAkBKyerqKlJKT4AGUDQadYGqEE3TAIjH40gpPbvur+soXoHU8njcu6ImZZ8mZZ+1NbvW2dOjQRBsO+0qtm2bZiFc7cSKqq+rPHMNXdcxTRPbtsnn89i2jeM4SCnRdf3EikT3lUslgEAkwvLyByj93vrSqRQrKytA2Sw3dR0ODgDYy2bJZDIMj424Bszt7h4P0nWd4fsP6yqEO6+AtjIZ2tra+Jb7jmEYx4IUhAAh2Nve5u38PE+fPaba1wABUFXWPr7H3xpgt5hDDfl49eYlasiHGvI1fh9FKbfuq5ddx0SgtRUob0eaptHVVXbal81NHMdhdnYSgIWF1wAU1J+1Zw3DYOdr3YKuTFbcuNbhAhXr9jK1eMGVN10s+ycYbMayLMJqqHYvm83S23/HVf9jb6/y6k4RhmGQzWZreXt7O5ZlHVkrtIoZvEZzc1lZMBBgenqaUslPb28vg4ODAGxtfQbO6IQ97LrRZJK5ubmGvdGnKEc4yyPMsixKJT+jySQtLS1IKZmclDiO03jCnhY2NfUCADORAGBgYAAAn+B0iqquql7v9t3GsixaI0FMM0Eu/4DRROJsFVXDMAxmZmYAuDcyBoC4db3jTP/r/P4AAOFwGCkl7xYWGH305P8oqoZpmjyfmADgFxvo979A2AkrAAAAAElFTkSuQmCC');
+}
+/* The fold control. A dark crystal at 18px read as an unidentifiable smudge, so it
+   gets a glyph drawn for the job plus a real chip to sit on. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle'] {
+  box-sizing: border-box;
+  width: 30px;
+  height: 26px;
+  color: rgb(242 181 68 / 92%);
+  background: rgb(242 181 68 / 10%);
+  border: 1px solid rgb(242 181 68 / 34%);
+  border-radius: 12px;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle']:hover {
+  background: rgb(242 181 68 / 22%);
+  border-color: rgb(242 181 68 / 62%);
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_toggle']::before {
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%3E%3Crect%20x%3D%223%22%20y%3D%224.5%22%20width%3D%2218%22%20height%3D%2215%22%20rx%3D%222%22%20stroke%3D%22%239fb6c4%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M9.2%204.5v15%22%20stroke%3D%22%239fb6c4%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M17.4%209.2%2014.6%2012l2.8%202.8%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M13.6%209.2%2010.8%2012l2.8%202.8%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%22.5%22%2F%3E%3C%2Fsvg%3E');
+}
+/* In the collapsed rail the shipped stylesheet already swaps the faces: the brand
+   mark shows and the panel glyph is hidden until hover. The chip mirrors that
+   swap instead of adding a second glyph beside the mark, and gives back the 36px
+   seat the rail sizes for. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_collapsed'] [class$='_toggle'] {
+  width: 36px;
+  height: 36px;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_collapsed'] [class$='_toggle']::before {
+  display: none;
+  width: 15px;
+  height: 15px;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%3E%3Crect%20x%3D%223%22%20y%3D%224.5%22%20width%3D%2218%22%20height%3D%2215%22%20rx%3D%222%22%20stroke%3D%22%239fb6c4%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M9.2%204.5v15%22%20stroke%3D%22%239fb6c4%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M13%209.2%2015.8%2012%2013%2014.8%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M16.8%209.2%2019.6%2012l-2.8%202.8%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%22.5%22%2F%3E%3C%2Fsvg%3E');
+}
+html[data-amiya-skin='1']
+  [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog']))
+  [class*='_collapsed']
+  [class$='_toggle']:hover::before {
+  display: inline-block;
+}
+
+/* The rail chip is centred on the mark it frames, at the 36px seat the rail sizes for.
+   Without this the button is a flex row from its left edge, so a 24px mark inside a
+   36px rounded chip reads as sitting outside the frame. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_collapsed'] [class$='_toggle'] {
+  padding: 0;
+  gap: 0;
+  justify-content: center;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_railMark'] {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+}
+
+/* The machined hairline and hazard rule under the brand row. */
+html[data-amiya-skin='1'] [class*='_logoRow'] {
+  position: relative;
+  border-bottom: 1px solid rgb(242 181 68 / 14%);
+}
+html[data-amiya-skin='1'] [class*='_logoRow']::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: -1px;
+  height: 3px;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%208%22%20width%3D%2224%22%20height%3D%228%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%208%208%200h4L4%208Z%22%20fill%3D%22%23f2b544%22%20opacity%3D%22.55%22%2F%3E%3Cpath%20d%3D%22M12%208%2020%200h4l-8%208Z%22%20fill%3D%22%238fb4c9%22%20opacity%3D%22.3%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: repeat-x;
+  background-size: auto 3px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+html[data-amiya-skin='1'] [class*='_buildVersion'] {
+  font-family: var(--ds-font-family-code, ui-monospace, 'SF Mono', Consolas, monospace);
+  letter-spacing: 0.06em;
+  color: rgb(242 181 68 / 85%) !important;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) button {
+  border-radius: 12px;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) button:focus-visible {
+  outline: 2px solid rgb(242 181 68 / 85%);
+  outline-offset: 2px;
+}
+
+/* --- 4. Workspace and working-directory glyphs --------------------------- */
+/* These are dossier shapes, not crystals. The originium shard that used to sit
+   here failed for a reason brightness could not fix: a faceted crystal is not a
+   folder, so even lifted to a pale silhouette there was nothing to recognise.
+   Both DOM shapes are covered — where the class is on the icon's container the
+   original SVG is replaced, and where it is on the SVG itself generated content
+   simply does not render (it is invalid inside <svg>), so that case degrades to
+   the recolour rather than blanking the icon. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folder'],
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folderActive'] {
+  color: rgb(150 170 190 / 92%);
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folderActive'] {
+  color: var(--dsw-alias-brand-primary, #f2b544);
+  filter: drop-shadow(0 0 5px rgb(242 181 68 / 45%));
+}
+/* Hide *whatever* the icon component renders, not just a bare <svg>: a wrapped
+   icon was the reason the first attempt left the shipped folder glyph in place. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folder'] > *,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folderActive'] > * {
+  display: none;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folder']::before,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folderActive']::before {
+  content: '';
+  display: inline-block;
+  flex: none;
+  width: 17px;
+  height: 17px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABgCAMAAABMvl6/AAADAFBMVEVMaXHtiwLxjQIkFQYLBgcaDgfwjANGMBDUeQP1qQb1jgX+rw5TOgVIU1SMag7+oAb1kARRQy62jhR4Ww/Zyo5oQxL9og1HMxpBKhVSKgfu5rj07M6Mm8RWMw2fcQqwkybwkgxPLQ3Lpw3Ebgbgz4OZYhMtOz3n2ZtyQAn63ahkOg9WUTAqS0/DjSHZxnXn15E0FwY5JArcxXHjznebdQGogwWmlEXMqzC3cglKNh7HfQOHg3QqDQLUuVI6GwRoSB0dCgSJVxPMs1GHXRRGST0eNESEbyG1mCXDjwPHpS98h3REU3EBAQD///8UCgEPBwD+/vwjEQEIBAAyGAEbDAEnGAQHCQ5GJAFAHwEsFABbLwIODg8JERk4HQJOJAEEBQcLCgX9+e4HDRQdFQULFR0VFBFXKAEhGw9kMQIrIAtuNgNQKgP//vV4PQT96dXn4t/99duCSAcLFCX19fP88uRASEm2SwPu6+ZOMRMTEQlMPyOGNwIZJEWQTQYYGRusioGVVgnLycf6sSNFPjHgZAikRAOjWQdGNx9JHACMQwNcPCJoKQFCLgdBQT5lcHEiIx3Q0dDXWAMPIjm7p1aVOgG7fBgtKByapaM4KgavXwY4MSbJagkUIScrLjCUY0Ds4Mb98MsMGDBeaGF4LQDHUwTb2diohXa8uLGwrabaixJvfoH+vit3Tyv9zDUjJCbNu3nGkmo2JRJ/jI7e0L+vdU7KgxCEXjoxL0DZdQixk4W2bA1YO0aqel9hXk7+5MG7hGBCMzHe0qHLxLZhRStPS0JQQAdjUkDpfi+8wsO/rHN/YwRYOBX9ohaZfGqibUh/ZFGnahBuTDmRbV6rlWHLwJgzOjBqSSSBb2DsjQ7Dozqpt7ZDM0VxYB9SXmWPeEvXonheSwmlhAp5WE+Jl5uZjnjhoCXe1dD41LnJslj5x5FkPAvkxa3/1010Rg7msIVyVj92gZ3zp2rxoSCSk5ArPE1fbpDEkCLoeg2YawrItqL2vH3un0qXhDO0nZToik+RUx4nh058AAAA/nRSTlMAEhocCRIiAwYLQyk2/mdTNP6gS/4lYrT+Xvj7/tig/3SY5VPgOv7jg/2w+v6Q1fvh2fj2frz964d/cfzo1b7c9KGzwuH+/cO217j7/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////rDIqpoAAAAJcEhZcwAACxIAAAsSAdLdfvwAABTYSURBVGjetZoHWJNn18dFWwi2qCgKyqvI66p7Vb+666xt8yRkkUUgELIJEJkBg2GFDcqSKchQ2SBCkYqKDAcoKIrQAqIVB3W0ah3Vtu+5n2BFa6u2/c7FpXhd8jv/8z/nHs8Thgz5W2GA/nhvyP9LGODwYeO/+GKsLs+/ykZEwrDxphuyuvNX/MsJdPAxlqZf7v8hOv2CUf4X7//L8PfGLzM1+uk///lpenpUTZZR9BeG/0oFOsvHjrHcENX9A6JPr4mOzsqKNsr64l/AI4Th2PGmE2fXRCO6h0f0/v35+fmQYk70iH9WAP7DhtOWzVrT3qijG3Wv2Lnzu+/2Q+RDgpp/kAC3xXDMMtPZR2tqLuYD/YfurPv79u3EA3Lk53fPyfqbCQYsX7bByMhoes3F6P1Az9+/1//EiW90oavCaE7WtHdPgP/A++MtNxh1G3lA5AP9u/yd/rm5/hAn8BhIYTRnw4fvmgD+u+F4U+N6kO7hsfHBlzCRP3y3t9zLJTd3Owp//2P+5cf27gWr7udPL1447N0SEAgfWi4sS/EwMqr38DD68qeffliRtdfLzcsFIjf32rVr5eXfo3jy5An0Yv/0ORveJYEBwfDDlTRaWWA9ond3f/kgJpHThrl5oXDBIyPjOorvvz92bO833+RvvGD6DnsdQc/QlC1F+CgPI4+UGD6Rn9TffrXcy8pKl8PLWReHr5eXl6N2dG+cY2rw9vihU3jsspDACxfSE8ukDDqfqpL2NkX6ZN33d8es3NwhnN3d7Z3snZ0zMq5dg26c8Hgw3fJtHTIc+sEstjQxUSpmMKRSKUPAt+NKmzjePoGBkYV7vre3crKHsLJycrJ3d3ZGDcl12Zk258Gyt0tA0PtgCovNoFAEAil8SaUkFZfLiIz0DjGuk4si4hPuXLd3wqzwgEp0HfHa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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 5px rgb(242 181 68 / 45%));
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_folderActive']::before {
+  filter: drop-shadow(0 0 7px rgb(242 181 68 / 75%));
+}
+/* The browsing region's other iconography is drawn in label-secondary and
+   label-tertiary, which are dim once they sit on glass. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_iconButton']:not([class$='_toggle']),
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_headerActions'] button,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_chevron'],
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_arrow'],
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_arrowOpen'] {
+  color: var(--dsh-amiya-ink-2, rgb(200 212 226 / 92%));
+}
+html[data-amiya-skin='1']
+  [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog']))
+  [class$='_iconButton']:not([class$='_toggle']):hover,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_headerActions'] button:hover {
+  color: var(--dsw-alias-brand-primary, #f2b544);
+}
+
+/* --- 5. Slot occupants --------------------------------------------------- */
+.amiya-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.amiya-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgb(242 181 68 / 32%));
+}
+.amiya-brand-name {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  line-height: 1.05;
+}
+.amiya-brand-name__main {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgb(242 240 234 / 96%);
+  white-space: nowrap;
+}
+.amiya-brand-name__sub {
+  font-family: var(--ds-font-family-code, ui-monospace, Consolas, monospace);
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  color: rgb(242 181 68 / 88%);
+  white-space: nowrap;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__main {
+  color: rgb(24 20 14 / 94%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__sub {
+  color: rgb(138 90 6 / 95%);
+}
+.amiya-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 18px rgb(242 181 68 / 32%));
+}
+.amiya-hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* The sidebar-foot wallpaper control. */
+.amiya-action {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 32px;
+  padding: 0 10px;
+  color: rgb(242 240 234 / 90%);
+  background: rgb(242 181 68 / 10%);
+  border: 1px solid rgb(242 181 68 / 30%);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+.amiya-action:hover {
+  background: rgb(242 181 68 / 20%);
+  border-color: rgb(242 181 68 / 56%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-action {
+  color: rgb(24 20 14 / 92%);
+  border-color: rgb(146 100 12 / 42%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-action:hover {
+  background: rgb(154 103 16 / 18%);
+}
+/* Amiya's own operator portrait, cropped round behind an amber ring. */
+.amiya-action__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  background-image: url('data:image/png;base64,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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgb(242 181 68 / 55%);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgb(242 181 68 / 25%);
+}
+.amiya-action__label {
+  white-space: nowrap;
+}
+
+/* The composer is transparent except for the input card itself.
+   Nothing is frosted here and nothing is plated: the seat's shipped gradient and the
+   frost that used to sit on top of it are both gone, so the wallpaper runs unbroken up
+   to the card and all the way around it.
+
+   No positioning is declared either. The application already makes the seat sticky at
+   the bottom of the column, raises it for an open trigger menu and switches it to
+   absolute when the composer is an overlay — forcing those from here fought the last
+   case and bought nothing. */
+html[data-amiya-skin='1'] [class*='_composerSeat'],
+html[data-amiya-skin='1'] [class*='_composerStack'] {
+  background: none !important;
+  border-top: none !important;
+  box-shadow: none !important;
+}
+html[data-amiya-skin='1'] [class*='_composerSeat']::before,
+html[data-amiya-skin='1'] [class*='_composerStack']::before {
+  content: none !important;
+}
+/* Taller than shipped, as asked: the 36px text well becomes 64px. */
+html[data-amiya-skin='1'] [class*='_composerSeat'] [class$='_input'],
+html[data-amiya-skin='1'] [class*='_composerStack'] [class$='_input'] {
+  min-height: 64px;
+}
+
+/* --- The top of the column: no surface of its own --------------------- */
+/* The column paints nothing — it is the wallpaper — so the top must paint nothing
+   either, and then it is continuous with everything below it by construction.
+
+   It used to carry a frost. Two things were wrong with that: the selector matched
+   several nested header elements at once, so the "one" plane was really several
+   stacked ones with several hairlines, and its colour was a fixed tint while the rest
+   of the column shows the solved canvas. Both are gone.
+
+   Legibility is kept the only way a fully transparent bar can keep it: a shadow under
+   the text. A shadow follows the glyphs, so it cannot introduce an edge where the
+   header ends. */
+html[data-amiya-skin='1'] [class*='_centerCol'] [class$='_header']:has([class*='_titleRow']) {
+  background: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+html[data-amiya-skin='1'] [class*='_centerCol'] [class$='_header']:has([class*='_titleRow'])::before {
+  content: none !important;
+}
+html[data-amiya-skin='1'] [class*='_centerCol'] [class$='_header']:has([class*='_titleRow']) [class*='_title'],
+html[data-amiya-skin='1'] [class*='_centerCol'] [class$='_header']:has([class*='_titleRow']) [class*='_crumb'],
+html[data-amiya-skin='1'] [class*='_centerCol'] [class$='_header']:has([class*='_titleRow']) [class*='_name'] {
+  text-shadow: var(--dsh-amiya-glow-text);
+}
+/* The palette's own copy of the value, so a light interface keeps a light halo and the
+   whole row still shares one definition. */
+
+/* --- 10. One frame per control in the foot, not two ----------------------- */
+/* The foot already frames every control it contains. These two carried their own border
+   on top of that, so the same edge had two 1px amber lines and the doubled edge read as
+   a pale band — most visibly along the top of the pair. */
+html[data-amiya-skin='1'] .amiya-footer .amiya-action,
+html[data-amiya-skin='1'] .amiya-footer .amiya-step {
+  border: none;
+}
+
+/* The composer's wallpaper control: the current picture's thumbnail and number. */
+.amiya-composer-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 8px;
+  color: rgb(232 238 246 / 88%);
+  background: rgb(242 181 68 / 10%);
+  border: 1px solid rgb(242 181 68 / 30%);
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.amiya-composer-button:hover {
+  color: rgb(255 255 255 / 96%);
+  background: rgb(242 181 68 / 20%);
+  border-color: rgb(242 181 68 / 52%);
+}
+.amiya-composer-button__thumb {
+  flex: none;
+  width: 24px;
+  height: 16px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgb(242 181 68 / 55%);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgb(242 181 68 / 20%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-composer-button {
+  color: rgb(24 20 14 / 90%);
+  border-color: rgb(146 100 12 / 42%);
+}
+
+/* The quick step: one click advances, Shift reverses. */
+.amiya-step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: rgb(242 181 68 / 92%);
+  background: rgb(242 181 68 / 10%);
+  border: 1px solid rgb(242 181 68 / 34%);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 120ms ease;
+}
+.amiya-step:hover {
+  background: rgb(242 181 68 / 22%);
+  border-color: rgb(242 181 68 / 62%);
+}
+.amiya-step:active {
+  transform: translateY(1px);
+}
+.amiya-step__icon {
+  width: 17px;
+  height: 17px;
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M3.4%206.2%206.2%203.4h11.6l2.8%202.8v11.6l-2.8%202.8H6.2l-2.8-2.8Z%22%20stroke%3D%22%239fb6c4%22%20stroke-width%3D%221.5%22%20stroke-linejoin%3D%22miter%22%2F%3E%3Cpath%20d%3D%22M10%208.4%2013.6%2012%2010%2015.6%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Cpath%20d%3D%22M14%208.4%2017.6%2012%2014%2015.6%22%20stroke%3D%22%23ffc857%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3C%2Fsvg%3E');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) .amiya-step {
+  width: 32px;
+  height: 32px;
+}
+
+/* The sidebar foot holds several plugins' actions (this skin's, the context
+   overview's, the Cordis panel's). Left alone they read as a row of mismatched
+   buttons, so the row is given one rhythm: a uniform gap and a shared height, and
+   this skin contributes a single joined unit rather than two loose ones. */
+/* A column of equal-width controls. A flex row of buttons from four different
+   plugins read as a pile; stacked and equal they read as one control group. The
+   rounding is applied to every entry, including the ones this skin does not own. */
+/* The whole foot is one column of equal-width controls. Targeting only
+   `_footerActions` was why the earlier attempt did nothing: the settings seat next
+   to it is a sibling, so the entry the user cared about was never matched. Applying
+   it to the foot's own container covers every plugin's entry. */
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])),
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])),
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])) > *,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])) > *,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) > * {
+  width: 100%;
+  min-height: 34px;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])) a,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])) a,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) a {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 34px;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--dsh-amiya-foot-plate, rgb(242 181 68 / 10%));
+  outline: 1px solid rgb(242 181 68 / 26%);
+  outline-offset: -1px;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) button {
+  background: var(--dsh-amiya-foot-plate, rgb(154 103 16 / 10%));
+  outline-color: rgb(146 100 12 / 32%);
+}
+/* This skin's own entry: the picker and the quick switch on ONE row, as asked, and
+   the row is exactly the width of the foot column — so it lines up with the context
+   overview above it instead of being a different width. */
+.amiya-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 6px;
+  width: 100%;
+}
+html[data-amiya-skin='1'] .amiya-footer .amiya-action,
+html[data-amiya-skin='1'] .amiya-footer .amiya-step {
+  flex: 1 1 0;
+  width: auto;
+  min-width: 0;
+  height: 34px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.amiya-step__label,
+.amiya-action__label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Ambient ribbon below the composer card. */
+.amiya-dock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 10px;
+  color: rgb(202 214 228 / 70%);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+.amiya-dock__emblem {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALAAAACwCAMAAACYaRRsAAADAFBMVEVMaXH////////+/v7////////////////////+/v7////8/Pz09PT9/f39/f3////9/f39/f339/f9/f38/Pz9/f3+/v7////////9/f39/f329vb9/f37+/v9/f39/f39/f39/f39/f39/f1qamr9/f36+vr8/Pz+/v729vb9/f39/f39/f39/f3////9/f39/f39/f38/Pz8/Pz8/Pz7+/v9/f38/Pz9/f39/f39/f39/f3////9/f38/Pz7+/v4+Pj9/f39/f39/f38/Pz9/f3////9/f39/f38/Py1tbX6+vr4+Pj9/f38/Pz5+fn9/f39/f3y8vL29vb39/f9/f39/f3+/v79/f39/f39/f39/f3+/v77+/v9/f38/Pz////9/f38/Pz+/v7+/v7+/v79/f38/Pz8/Pz7+/v8/Pz9/f39/f39/f39/f39/f3////8/Pz8/Pz////9/f38/Pz9/f3+/v79/f38/Pz8/Pz9/f39/f3+/v79/f39/f39/f38/Pz7+/v9/f3+/v76+vr9/f38/Pz9/f3+/v7+/v79/f36+vr9/f39/f3////8/Pz////9/f3+/v77+/v////+/v7////9/f38/Pz9/f3////9/f39/f37+/v////6+vr9/f3////7+/v+/v7+/v79/f39/f35+fn8/Pz////8/Pz09PT8/Pz8/Pz+/v79/f3////9/f36+vr////9/f39/f3////9/f38/Pz8/Pz////////19fX9/f3+/v79/f39/f3+/v7+/v7////19fX8/Pz8/Pz////////////////9/f3////9/f39/f39/f38/Pz7+/v////8/Pz9/f3Y2Nj////9/f39/f3+/v77+/v9/f37+/v+/v76+vr8/Pz+/v729vb39/f////9/f38/Pz////+/v79/f35+fn+/v79/f37+/v9/f3////MzMz////9/f3////////i4uL////+/v7////09PT////////////////+/v79/f0PGu3KAAAA/XRSTlMAAp72+wH9/gP8BHMZ0HL6+8EGx7++4/kR48MP7RX99NviYeYB8hBqygn44NbO9e719MrAdQ7p6HTy/d3402hFDM37vXbgBcW6cAMoDedR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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.92;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-dock {
+  color: rgb(60 56 48 / 78%);
+}
+
+/* --- 6. The wallpaper picker -------------------------------------------- */
+.amiya-picker {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+.amiya-picker__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(4 6 9 / 62%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.amiya-picker__panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(960px, calc(100vw - 64px));
+  max-height: calc(100vh - 96px);
+  overflow: hidden;
+  background: rgb(11 14 19 / 94%);
+  border: 1px solid rgb(242 181 68 / 28%);
+  border-radius: 20px;
+  box-shadow: 0 32px 80px -24px rgb(0 0 0 / 80%);
+}
+.amiya-picker__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgb(242 181 68 / 16%);
+}
+.amiya-picker__hero {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+}
+.amiya-picker__hero-face {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  background-image: url('data:image/png;base64,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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid rgb(242 181 68 / 55%);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgb(242 181 68 / 28%);
+}
+.amiya-picker__hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.amiya-picker__title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgb(242 240 234 / 94%);
+}
+.amiya-picker__hint {
+  font-family: var(--ds-font-family-code, ui-monospace, Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  color: rgb(242 181 68 / 70%);
+}
+.amiya-picker__close {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  color: rgb(242 240 234 / 88%);
+  background: rgb(255 255 255 / 6%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+}
+.amiya-picker__close:hover {
+  background: rgb(242 181 68 / 18%);
+  border-color: rgb(242 181 68 / 45%);
+}
+.amiya-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  overflow-y: auto;
+}
+.amiya-picker__cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+  cursor: pointer;
+  /* Opaque and dark: a translucent white wash turns the cell white over a light
+     palette, which is how its light caption ended up on white. */
+  background: rgb(9 12 17 / 72%);
+  border: 1px solid rgb(242 181 68 / 22%);
+  border-radius: 12px;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.amiya-picker__cell:hover {
+  border-color: rgb(242 181 68 / 45%);
+  transform: translateY(-1px);
+}
+.amiya-picker__cell.is-active {
+  background: rgb(242 181 68 / 16%);
+  border-color: rgb(242 181 68 / 80%);
+  box-shadow:
+    0 0 0 1px rgb(242 181 68 / 40%),
+    0 10px 26px -14px rgb(242 181 68 / 55%);
+}
+.amiya-picker__cell img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.amiya-picker__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 10px;
+  /* The caption is light type, and the picture above it can be white. It carries its own
+     dark scrim and a shadow, so the label can never be white on white in either palette. */
+  background: linear-gradient(to top, rgb(4 6 9 / 92%), rgb(4 6 9 / 74%));
+  border-top: 1px solid rgb(242 181 68 / 18%);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 70%);
+}
+.amiya-picker__idx {
+  flex: none;
+  font-family: var(--ds-font-family-code, ui-monospace, Consolas, monospace);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgb(242 181 68 / 92%);
+}
+.amiya-picker__label {
+  overflow: hidden;
+  font-size: 11px;
+  color: rgb(228 233 240 / 92%);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.amiya-picker__active-mark {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAF8AAABgCAMAAABMvl6/AAADAFBMVEVMaXHtiwLxjQIkFQYLBgcaDgfwjANGMBDUeQP1qQb1jgX+rw5TOgVIU1SMag7+oAb1kARRQy62jhR4Ww/Zyo5oQxL9og1HMxpBKhVSKgfu5rj07M6Mm8RWMw2fcQqwkybwkgxPLQ3Lpw3Ebgbgz4OZYhMtOz3n2ZtyQAn63ahkOg9WUTAqS0/DjSHZxnXn15E0FwY5JArcxXHjznebdQGogwWmlEXMqzC3cglKNh7HfQOHg3QqDQLUuVI6GwRoSB0dCgSJVxPMs1GHXRRGST0eNESEbyG1mCXDjwPHpS98h3REU3EBAQD///8UCgEPBwD+/vwjEQEIBAAyGAEbDAEnGAQHCQ5GJAFAHwEsFABbLwIODg8JERk4HQJOJAEEBQcLCgX9+e4HDRQdFQULFR0VFBFXKAEhGw9kMQIrIAtuNgNQKgP//vV4PQT96dXn4t/99duCSAcLFCX19fP88uRASEm2SwPu6+ZOMRMTEQlMPyOGNwIZJEWQTQYYGRusioGVVgnLycf6sSNFPjHgZAikRAOjWQdGNx9JHACMQwNcPCJoKQFCLgdBQT5lcHEiIx3Q0dDXWAMPIjm7p1aVOgG7fBgtKByapaM4KgavXwY4MSbJagkUIScrLjCUY0Ds4Mb98MsMGDBeaGF4LQDHUwTb2diohXa8uLGwrabaixJvfoH+vit3Tyv9zDUjJCbNu3nGkmo2JRJ/jI7e0L+vdU7KgxCEXjoxL0DZdQixk4W2bA1YO0aqel9hXk7+5MG7hGBCMzHe0qHLxLZhRStPS0JQQAdjUkDpfi+8wsO/rHN/YwRYOBX9ohaZfGqibUh/ZFGnahBuTDmRbV6rlWHLwJgzOjBqSSSBb2DsjQ7Dozqpt7ZDM0VxYB9SXmWPeEvXonheSwmlhAp5WE+Jl5uZjnjhoCXe1dD41LnJslj5x5FkPAvkxa3/1010Rg7msIVyVj92gZ3zp2rxoSCSk5ArPE1fbpDEkCLoeg2YawrItqL2vH3un0qXhDO0nZToik+RUx4nh058AAAA/nRSTlMAEhocCRIiAwYLQyk2/mdTNP6gS/4lYrT+Xvj7/tig/3SY5VPgOv7jg/2w+v6Q1fvh2fj2frz964d/cfzo1b7c9KGzwuH+/cO217j7/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////rDIqpoAAAAJcEhZcwAACxIAAAsSAdLdfvwAABTYSURBVGjetZoHWJNn18dFWwi2qCgKyqvI66p7Vb+666xt8yRkkUUgELIJEJkBg2GFDcqSKchQ2SBCkYqKDAcoKIrQAqIVB3W0ah3Vtu+5n2BFa6u2/c7FpXhd8jv/8z/nHs8Thgz5W2GA/nhvyP9LGODwYeO/+GKsLs+/ykZEwrDxphuyuvNX/MsJdPAxlqZf7v8hOv2CUf4X7//L8PfGLzM1+uk///lpenpUTZZR9BeG/0oFOsvHjrHcENX9A6JPr4mOzsqKNsr64l/AI4Th2PGmE2fXRCO6h0f0/v35+fmQYk70iH9WAP7DhtOWzVrT3qijG3Wv2Lnzu+/2Q+RDgpp/kAC3xXDMMtPZR2tqLuYD/YfurPv79u3EA3Lk53fPyfqbCQYsX7bByMhoes3F6P1Az9+/1//EiW90oavCaE7WtHdPgP/A++MtNxh1G3lA5AP9u/yd/rm5/hAn8BhIYTRnw4fvmgD+u+F4U+N6kO7hsfHBlzCRP3y3t9zLJTd3Owp//2P+5cf27gWr7udPL1447N0SEAgfWi4sS/EwMqr38DD68qeffliRtdfLzcsFIjf32rVr5eXfo3jy5An0Yv/0ORveJYEBwfDDlTRaWWA9ond3f/kgJpHThrl5oXDBIyPjOorvvz92bO833+RvvGD6DnsdQc/QlC1F+CgPI4+UGD6Rn9TffrXcy8pKl8PLWReHr5eXl6N2dG+cY2rw9vihU3jsspDACxfSE8ukDDqfqpL2NkX6ZN33d8es3NwhnN3d7Z3snZ0zMq5dg26c8Hgw3fJtHTIc+sEstjQxUSpmMKRSKUPAt+NKmzjePoGBkYV7vre3crKHsLJycrJ3d3ZGDcl12Zk258Gyt0tA0PtgCovNoFAEAil8SaUkFZfLiIz0DjGuk4si4hPuXLd3wqzwgEp0HfHa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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: drop-shadow(0 0 5px rgb(242 181 68 / 70%));
+}
+.amiya-picker__credit {
+  padding: 0 16px 14px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgb(198 206 216 / 74%);
+}
+
+/* --- 7. The immersion dial ---------------------------------------------- */
+.amiya-picker__immersion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid rgb(242 181 68 / 16%);
+}
+.amiya-picker__immersion-label {
+  flex: none;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: rgb(202 214 228 / 84%);
+}
+.amiya-picker__range {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 18px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+.amiya-picker__range::-webkit-slider-runnable-track {
+  height: 3px;
+  /* A 3px track has no room for a radius measured in px: the pill idiom is the only
+     way this reads as rounded at all. */
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(242 181 68 / 72%), rgb(242 181 68 / 20%));
+}
+.amiya-picker__range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5px;
+  background: #f2b544;
+  border: 1px solid #1a1206;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(242 181 68 / 60%);
+}
+.amiya-picker__range::-moz-range-track {
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgb(242 181 68 / 72%), rgb(242 181 68 / 20%));
+}
+.amiya-picker__range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #f2b544;
+  border: 1px solid #1a1206;
+  border-radius: 10px;
+}
+.amiya-picker__immersion-value {
+  flex: none;
+  width: 42px;
+  text-align: right;
+  font-family: var(--ds-font-family-code, ui-monospace, Consolas, monospace);
+  font-size: 11px;
+  color: rgb(242 181 68 / 92%);
+}
+.amiya-picker__contrast {
+  flex: none;
+  padding: 2px 8px;
+  font-family: var(--ds-font-family-code, ui-monospace, Consolas, monospace);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: rgb(152 220 182 / 96%);
+  border: 1px solid rgb(152 220 182 / 35%);
+  border-radius: 10px;
+}
+.amiya-picker__contrast.is-low {
+  color: rgb(255 192 122 / 96%);
+  border-color: rgb(255 192 122 / 48%);
+}
+
+/* The watermark: Amiya, desaturated and blown out to a pale silhouette. */
+html[data-amiya-skin='1'] body::after {
+  content: '';
+  position: fixed;
+  right: -3vw;
+  bottom: -4vh;
+  z-index: 0;
+  width: min(34vw, 420px);
+  aspect-ratio: 1;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAADAFBMVEVMaXEjEhk6L0ASCgweFRgKBAMTCAxeUEsIBAQNCAkdERQNCQwPCAyJf5HKwLn08vB9amfTsINVT1qTfXxRX4jo39hxYmC2paEgFR6mnJ2fgEuTlKOfeW3ctG1SQT1MNjWRPTeQbnVwbX5nZ3Xv0M1EaHfrmj9mQzJ4YkNzYWs6RFt0b3jBjI56cYNeRFOPg48fCw0rERfAnGFmOipLQz1VYolOMDRGNT57TDV3d4KlgDWcW1dmeaSneUigSC5jVF/MkYvNnFZKNEXHqKzNm5askVM4FBTsxsZaIRj1xb2ZYUXOpKSrYjFjQD3/////7cL/7Lv/8sdyUkj/99s+CAxNDBNkEhdYEBeHYE7/570+KChoS0ZQNTNJMS18W01uERf/8NB+UkViQEJ4SjyJaFguHRv/9tNUQEj9+faIVUQ4IiBdOjP+5baUZlBYQTk9T2w+LjJlQTZJAwWKExZXNSwJAwRFNTgnFxjcBQVsSTyQW097WldgBglqWFXIn3RTBgoZCAkjERCgDhLIBQXpDQ+ngma1iHBJOj9uQTNHKSd6Exmodlh6PjS7Cw6tCApwBgehaEVxUF8/QlwzJyquGhoxCgvWERSUCQmHTjuWYUNXTU43OE2dclJhVWS9n2+hY1rTBASSbF2udWWWFhgcJS6tmIfc1M2ajpFgMSXdv7C7jmJjR1ebg3XzxqSiemDy6t2adWDMh2/DFhusck5/dHWTVz0tKDm+d2n+/ehFGhn616zjvJq3gFtUMT5vXWyfWUyGBggnGCtTKSKHcms5GBSxaFfUmX/KsKRHQU6wu8KijX97CAvbpo62s6yQd2q4pozKzMlnGiYXFRyPZmnm6en158ipkWfW2dxtNjBzanBRUWWUclvx3b7r0bbpwX1hZXDzx2qDYzjuqIsjMlKsgIZ/gX85XWGFXGW/SSTW3asaHkl0RUu8yJhvJSZYhIf3sUu8kzjPxIuFKSnTr0YkTVBzVzD144+UhVnSZSen2dTl9cDXfDeRNRRzp6R5jsHJ+vmiHODuAAAA1XRSTlMAgP4nDgYZAkhVaDI+/f7+/v/+/vr+/v6d/a3+/vdUi/75/qb6/vuoksWy5P795MHew8/Qc9Szx8Z9/TD4c/7Ojvrq0E775Li5euGl4fj//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////v7YRYnTAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAWMklEQVRo3q2aB1STadbHCTUJHaRXe+9tdOzTtp0gSYCQBmmQYkICITEJCUUhIKGJSAfpvUnv0pEuKIKKvfdxnD6z+z0vOjvf7hKcOcd7MGiSc3/Pvf/73Ke8amj8OdPT2HMr39eko2wpmyCXlaeJnQzgOuDdj2jLb+WnmSfIlybKRbJynhgJN9D4qKa3syPfrMDSso5fJhor529BILQ+ZgB6Gtr7MvMzrSzr6pS+ZvZ0xhY4QvfjZkh337UGS6se8x4538TEUmwNR2h/3Ah0dl7TnLUaGxuTK9GZvqEwOND44xoAmFiZmIz5AiMCCfQ/boaAyNc0zcdNekzS0tLLOFs/tgRA5CXXNMvHe8ZM5JpKdI7ThyXQ+9OAJaJyKwBQphNrNyD/gAR6fw6gCwEKeszlSp5k5BP4hyUA81zvTwI0y4fKzRPLihX2yD8gwWatPxiE3ruBvAMMyTOp1SMwOOLDGSqy2qP9B4J4/w1tbQM/ACjokckEEWvgCMSHG5H5UOFnjhofQECf6nz6+aGvjGw2AsBQQY8JA70dTDL4h4uUNFReaLFcdxEC9Inep4c+q0KhLIoyzaAIhuyp7MKJunWwP5BfBrHgwSjKBqmn5pvz72rZlqxgophFSr5mOgCM2dNlVCtjFGp0N5gGH0Dg2eRxc3Pm1V1qg/300FrLFYWFxkb8wMDAyQa/JQ1yS5P77EQrFAp1uWi7o97i+cUzeqsLzHsmmGsNNHQWyI7uV8ZGllYWaaI0EZ+fCAgA4CsqsgkU55vZgCAsbD77dNEYCMRQBn3IXD6KWg9f4IufW0yYBVItHljWDU7yfc1tLLv80sUivlVhaCJ/MlBuBBCoFfsXWzRNLAmM3m/HikxsmOv/d1YeYj4IDPStujxqVccPDAkJ4ReZ3ZsM5OOtmKIuJZ/BSIOCQDEPLdKQMjvkclEvT25uYnJ1/X+vfodQRcAn08KSQSLh8SSiCB8Smh8YEoqf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');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  filter: saturate(0) brightness(2.6);
+  opacity: 0.075;
+  pointer-events: none;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme])::after {
+  filter: saturate(0) brightness(0.4);
+  opacity: 0.06;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])),
+  .amiya-action,
+  .amiya-step,
+  .amiya-picker__cell {
+    transition: none;
+  }
+}
+
+/* --- 8. One glow for the whole top row ------------------------------------ */
+/* The title had a shadow and the controls beside it had none, so the strip read as a
+   single lit word followed by flat icons. Everything in the row now takes the same
+   light, from one place: the title and its crumbs, the 对话 / 轨迹 tabs, the context
+   menu, and the mode control's glyph.
+
+   Scoped to `titleRow` and `tabs` rather than to `_header`: a message header is also
+   a `_header` element inside this column, and its icons were not part of the request.
+
+   Icons cannot take a `text-shadow`, so they get the same light as drop-shadows. The
+   warm outer halo is what makes either of them read as a glow rather than a smudge, and
+   it is deliberately stronger than the first version — "明显一点". */
+html[data-amiya-skin='1'] {
+  --dsh-amiya-glow-text: 0 1px 2px rgb(0 0 0 / 82%), 0 0 10px rgb(0 0 0 / 60%),
+    0 0 22px rgb(242 181 68 / 38%);
+  --dsh-amiya-glow-icon: drop-shadow(0 1px 2px rgb(0 0 0 / 82%))
+    drop-shadow(0 0 7px rgb(0 0 0 / 60%)) drop-shadow(0 0 14px rgb(242 181 68 / 55%));
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) {
+  --dsh-amiya-glow-text: 0 1px 2px rgb(255 255 255 / 88%), 0 0 10px rgb(255 255 255 / 72%),
+    0 0 22px rgb(154 103 16 / 34%);
+  --dsh-amiya-glow-icon: drop-shadow(0 1px 2px rgb(255 255 255 / 88%))
+    drop-shadow(0 0 7px rgb(255 255 255 / 72%)) drop-shadow(0 0 14px rgb(154 103 16 / 45%));
+}
+
+/* The row's text: the title, the crumbs, both tab labels, and every label inside the
+   header slots the context menu and the mode control are contributed to. */
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_titleRow'],
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_titleRow'] *,
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_tabs'],
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_tabs'] * {
+  text-shadow: var(--dsh-amiya-glow-text);
+}
+
+/* The row's glyphs. The mode control renders its icon as an svg carrying an `_icon`
+   class, so both selectors resolve to that one element and it takes a single filter. */
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_titleRow'] svg,
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_titleRow'] img,
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_titleRow'] [class*='_icon'],
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_tabs'] svg,
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_tabs'] img,
+html[data-amiya-skin='1'] [class*='_centerCol'] [class*='_tabs'] [class*='_icon'] {
+  filter: var(--dsh-amiya-glow-icon);
+}
+
+/* --- 11. The session list's bottom fade ---------------------------------- */
+/* Scoped through the sidebar column: `_fade` is a generic local name and other modules
+   have fades of their own that should keep the shipped colour. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_fade'] {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--dsh-amiya-foot-plate, rgb(242 181 68 / 10%))
+  ) !important;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_fade'] {
+  background: linear-gradient(to bottom, transparent, rgb(154 103 16 / 10%)) !important;
+}
+
+/* --- 14. Readable dialogs over a visible picture --------------------------- */
+/* Colours only. While a dialog is open the skin's surfaces stay in force for the shell, so
+   the wallpaper keeps showing; the dialog's own surfaces are pinned near-opaque so its text
+   is readable over that picture. Nothing here touches layout — the dialog's arrangement is
+   DSH's own, and every sidebar-scoped rule stands down while it is open. */
+html[data-amiya-skin='1'] body[data-ds-dark-theme]:has([role='dialog']),
+html[data-amiya-skin='1'] body[data-ds-dark-theme]:has([role='alertdialog']) {
+  --dsw-alias-bg-overlay: rgb(11 14 19 / 99%);
+  --dsw-alias-bg-layer-2: rgb(17 21 28 / 99%);
+  --dsw-alias-bg-layer-3: rgb(11 14 19 / 99%);
+  --dsw-specific-menu: rgb(11 14 19 / 99%);
+  --dsw-specific-tip: rgb(11 14 19 / 99%);
+  --dsw-specific-selector: rgb(17 21 28 / 99%);
+  --dsw-alias-bg-module-platform: rgb(17 21 28 / 99%);
+  /* The mask stays as the skin solved it, so the picture reads through the dimming. */
+  --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask, rgb(3 5 8 / 62%));
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]):has([role='dialog']),
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]):has([role='alertdialog']) {
+  --dsw-alias-bg-overlay: rgb(252 253 254 / 99%);
+  --dsw-alias-bg-layer-2: rgb(250 251 252 / 99%);
+  --dsw-alias-bg-layer-3: rgb(252 253 254 / 99%);
+  --dsw-specific-menu: rgb(252 253 254 / 99%);
+  --dsw-specific-tip: rgb(252 253 254 / 99%);
+  --dsw-specific-selector: rgb(250 251 252 / 99%);
+  --dsw-alias-bg-module-platform: rgb(250 251 252 / 99%);
+  --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask-l, rgb(24 26 30 / 34%));
+}
+

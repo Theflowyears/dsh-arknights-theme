@@ -1,0 +1,62 @@
+{
+  "name": "dsh-arknights-theme",
+  "version": "1.0.0",
+  "description": "Arknights theme pack for the DSH Web GUI: wallpaper skin with saturation-driven edge blur, an acrylic sidebar, a Rhodes Island icon treatment, and a one-click wallpaper picker.",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "./icons/amiya-mark.svg",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./wallpapers.json": "./assets/wallpapers.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "icons",
+    "cordis.patch.yml",
+    "README.md",
+    "ICON-ATTRIBUTION.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    },
+    "manifestVersion": 1
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "wallpaper",
+    "skin",
+    "arknights",
+    "amiya",
+    "acrylic"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.4"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Theflowyears/dsh-arknights-theme.git"
+  },
+  "homepage": "https://github.com/Theflowyears/dsh-arknights-theme#readme",
+  "bugs": {
+    "url": "https://github.com/Theflowyears/dsh-arknights-theme/issues"
+  },
+  "author": "Theflowyears"
+}

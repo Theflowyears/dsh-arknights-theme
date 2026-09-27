@@ -1,0 +1,6 @@
+# dsh-amiya-wallpaper bundle patch — inserts this plugin into a profile's layer
+# stack. The row id is what the plugin market's skin manager toggles, so it is
+# kept in the `ui-skin-*` namespace the other skin plugins use.
+- insert:
+    - id: ui-skin-amiya-wallpaper
+      name: 'dsh-amiya-wallpaper'

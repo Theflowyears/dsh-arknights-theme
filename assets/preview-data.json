@@ -1,0 +1,4874 @@
+{
+  "schema": "dsh-amiya-wallpaper/preview-data/v1",
+  "markFile": "prts/rhodes-island.png",
+  "avatarFile": "prts/amiya-avatar.png",
+  "watermarkFile": "prts/amiya-avatar-skin2.png",
+  "crestFiles": {
+    "vanguard": "prts/class-vanguard.png",
+    "guard": "prts/class-guard.png",
+    "defender": "prts/class-defender.png",
+    "sniper": "prts/class-sniper.png",
+    "caster": "prts/class-caster.png",
+    "medic": "prts/class-medic.png",
+    "supporter": "prts/class-supporter.png",
+    "specialist": "prts/class-specialist.png"
+  },
+  "crestLargeFiles": {
+    "vanguard": "prts/class-vanguard-lg.png",
+    "guard": "prts/class-guard-lg.png",
+    "defender": "prts/class-defender-lg.png",
+    "sniper": "prts/class-sniper-lg.png",
+    "caster": "prts/class-caster-lg.png",
+    "medic": "prts/class-medic-lg.png",
+    "supporter": "prts/class-supporter-lg.png",
+    "specialist": "prts/class-specialist-lg.png"
+  },
+  "operatorFiles": {
+    "amiya": "prts/amiya-avatar.png",
+    "rosmontis": "prts/op-rosmontis.png",
+    "kaltsit": "prts/op-kaltsit.png",
+    "chen": "prts/op-chen.png",
+    "exusiai": "prts/op-exusiai.png",
+    "silverash": "prts/op-silverash.png"
+  },
+  "brightestId": "83d33525d0e9dbdf83dbf7be5844b51c",
+  "defaultImmersion": 20,
+  "wallpapers": [
+    {
+      "id": "0d555849af53296a423101fb2319e4d3",
+      "title": "壁纸 01",
+      "ordinal": 1,
+      "source": "0D555849AF53296A423101FB2319E4D3.jpg",
+      "label": "横屏 · 中间调 · 中饱和 · 暖红",
+      "accent": "#8fd0ff",
+      "wide": "0d555849af53296a423101fb2319e4d3-wide.webp",
+      "narrow": "0d555849af53296a423101fb2319e4d3-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBQCdASogABIAPulkqk6pJaOiMBgIASAdCWcAwNwQ8CK5S55s0T+buEm3ls76NaWyAAD+70Mmcgf+KlFr7gw5ejsjrJy7JIIaVK51ENFqLNZQ3t+30ULIXMbe6FGanqJkYIcQoAA=",
+      "preview": "0d555849af53296a423101fb2319e4d3-preview.webp",
+      "saturation": 0.2379,
+      "blurSigma": 24.43,
+      "classKey": "guard",
+      "className": "近卫",
+      "classEn": "Guard",
+      "operatorKey": "chen",
+      "operatorName": "陈",
+      "operatorEn": "Ch'en",
+      "mean": [
+        82,
+        65,
+        66
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.49456781327724464
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.49456781327724464
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(199 174 182 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(191 166 174 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(191 167 174 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(190 166 173 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(28 12 18 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(42 24 30 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(40 23 29 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(31 14 20 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "1aa5e564d740a65d2d7a12164e9a826f",
+      "title": "壁纸 02",
+      "ordinal": 2,
+      "source": "1AA5E564D740A65D2D7A12164E9A826F.jpg",
+      "label": "横屏 · 中间调 · 高饱和 · 靛蓝",
+      "accent": "#f2b544",
+      "wide": "1aa5e564d740a65d2d7a12164e9a826f-wide.webp",
+      "narrow": "1aa5e564d740a65d2d7a12164e9a826f-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBQCdASogABIAPulkqU2pJaQiMAgBIB0JQBllgicxErVW2de5pDI447s6x7fFkEAQAP7cXMH754vTgb8rrOiHukCY9j/oqwkuiiJqa+c1hUJ5tQ8n5YN179lksoLmyAobhGzc6/cxTdkAQuJaJot4FC3fTe93rKrWAG3HqI8iYNEwSCfIpCgAAAA=",
+      "preview": "1aa5e564d740a65d2d7a12164e9a826f-preview.webp",
+      "saturation": 0.4014,
+      "blurSigma": 33.16,
+      "classKey": "caster",
+      "className": "术师",
+      "classEn": "Caster",
+      "operatorKey": "amiya",
+      "operatorName": "阿米娅",
+      "operatorEn": "Amiya",
+      "mean": [
+        88,
+        83,
+        120
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.437459193468094
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.437459193468094
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(178 201 223 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(178 201 223 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(176 200 222 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(177 201 223 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(9 28 44 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(9 28 44 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(10 28 44 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(8 27 43 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "411e9b905a14497996bca303cf8429e6",
+      "title": "壁纸 03",
+      "ordinal": 3,
+      "source": "411E9B905A14497996BCA303CF8429E6.jpg",
+      "label": "横屏 · 中间调 · 中饱和 · 青绿",
+      "accent": "#8fd0ff",
+      "wide": "411e9b905a14497996bca303cf8429e6-wide.webp",
+      "narrow": "411e9b905a14497996bca303cf8429e6-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwBQCdASogABIAPulkq08pJSQiMBgIASAdCWMAx+Q0kVL+/akbd7Z8iceWRGR5hvmlsFrwAP7zo9EyBo1yVQ5kmVQtdzzMYuMLIVuh5P2V4VRj7ezAcs0O3AL1CnKbtjKoz4HhUYrWV3McJVlWEoMAfmzsQAAA",
+      "preview": "411e9b905a14497996bca303cf8429e6-preview.webp",
+      "saturation": 0.2012,
+      "blurSigma": 23.53,
+      "classKey": "medic",
+      "className": "医疗",
+      "classEn": "Medic",
+      "operatorKey": "kaltsit",
+      "operatorName": "凯尔希",
+      "operatorEn": "Kal'tsit",
+      "mean": [
+        132,
+        141,
+        134
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.4131860953569412
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.4131860953569412
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(236 246 226 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(237 246 226 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(236 246 226 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(236 245 225 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(38 45 30 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(38 45 30 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(38 45 30 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(35 42 27 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "7edeaee2037cd33e39f4bb1f1e358aab",
+      "title": "壁纸 04",
+      "ordinal": 4,
+      "source": "7EDEAEE2037CD33E39F4BB1F1E358AAB.jpg",
+      "label": "横屏 · 暗调 · 低饱和 · 近乎单色",
+      "accent": "#4fd1e0",
+      "wide": "7edeaee2037cd33e39f4bb1f1e358aab-wide.webp",
+      "narrow": "7edeaee2037cd33e39f4bb1f1e358aab-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBQCdASogABIAPulkqU0pJaQiMAgBIB0JaQDL4CHfwMhpq5x792FzWer+NaOBILwAAP7yo8a4DyeUZBSHgZmbBUI3plix9hJQLyr5e9jPAiTv1L5RcYAkDoIovQAA",
+      "preview": "7edeaee2037cd33e39f4bb1f1e358aab-preview.webp",
+      "saturation": 0.1481,
+      "blurSigma": 21.42,
+      "classKey": "defender",
+      "className": "重装",
+      "classEn": "Defender",
+      "operatorKey": "silverash",
+      "operatorName": "银灰",
+      "operatorEn": "SilverAsh",
+      "mean": [
+        58,
+        54,
+        54
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.5310077369213104
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.5310077369213104
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(188 167 169 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(178 157 159 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(178 157 159 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(182 161 163 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(13 3 4 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(34 19 21 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(34 19 21 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(26 12 13 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "832d435484f5905093721d315bb60134",
+      "title": "壁纸 05",
+      "ordinal": 5,
+      "source": "832D435484F5905093721D315BB60134.jpg",
+      "label": "横屏 · 中间调 · 中饱和 · 紫罗兰",
+      "accent": "#f2b544",
+      "wide": "832d435484f5905093721d315bb60134-wide.webp",
+      "narrow": "832d435484f5905093721d315bb60134-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBQCdASogABQAPtlUo00oJKMiN/qoAQAbCWMAvzggfIOdcUoN4Z4lvI0hQNvL7q1aG/GhAAD+HXCBRKItkLte6wgrjexC/qtfJjCriA3aDC2CiFrm7L4B3+vfqIQZHu7WSQkWqvdFZLk/R2BT1tfPtCPzA8vaAAA=",
+      "preview": "832d435484f5905093721d315bb60134-preview.webp",
+      "saturation": 0.1795,
+      "blurSigma": 20.75,
+      "classKey": "specialist",
+      "className": "特种",
+      "classEn": "Specialist",
+      "operatorKey": "rosmontis",
+      "operatorName": "迷迭香",
+      "operatorEn": "Rosmontis",
+      "mean": [
+        108,
+        103,
+        120
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36490926861763
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36490926861763
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(218 226 245 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(217 225 243 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(217 225 244 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(217 225 243 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(19 24 37 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(19 24 37 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(19 25 37 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(19 24 37 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "83d33525d0e9dbdf83dbf7be5844b51c",
+      "title": "壁纸 06",
+      "ordinal": 6,
+      "source": "83D33525D0E9DBDF83DBF7BE5844B51C.jpg",
+      "label": "横屏 · 亮调 · 中饱和 · 金黄",
+      "accent": "#4fd1e0",
+      "wide": "83d33525d0e9dbdf83dbf7be5844b51c-wide.webp",
+      "narrow": "83d33525d0e9dbdf83dbf7be5844b51c-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBQCdASogABIAPulkqU8pJaOiMBgIASAdCUAABY/uelGiMRfTuZQtNkTPkmkpiXRYAAD+tgM+nEkVOXbshzwPS/8+WFZcBals0dvUgsAqFl8jVJWZEOrzqxrWNZeLK5Gf5D+/X4+trgAA",
+      "preview": "83d33525d0e9dbdf83dbf7be5844b51c-preview.webp",
+      "saturation": 0.1791,
+      "blurSigma": 22.81,
+      "classKey": "vanguard",
+      "className": "先锋",
+      "classEn": "Vanguard",
+      "operatorKey": "exusiai",
+      "operatorName": "能天使",
+      "operatorEn": "Exusiai",
+      "mean": [
+        219,
+        218,
+        187
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.6354493552446365
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.6354493531584742
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6354493552446365
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.6354493552446365
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.6354493531584742
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6354493552446365
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(255 248 235 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(255 248 235 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(255 248 235 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(255 248 235 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(56 43 33 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(56 43 33 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(56 43 33 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(56 43 33 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "87a14beae58e6309e52915cc62b9cd0b",
+      "title": "壁纸 07",
+      "ordinal": 7,
+      "source": "87A14BEAE58E6309E52915CC62B9CD0B.jpg",
+      "label": "横屏 · 亮调 · 低饱和 · 近乎单色",
+      "accent": "#e8b04b",
+      "wide": "87a14beae58e6309e52915cc62b9cd0b-wide.webp",
+      "narrow": "87a14beae58e6309e52915cc62b9cd0b-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASogABAAPuluq08pJyQiMAgBIB0JZQCdAB45OFVTTJo7oYaAAOHBzzXjKviq3UoNBh0X58YAG3dtpvTZ48gg7kKe8KE4IMxko9iAxQixRgrOdn/K8AA=",
+      "preview": "87a14beae58e6309e52915cc62b9cd0b-preview.webp",
+      "saturation": 0.1343,
+      "blurSigma": 19.17,
+      "classKey": "defender",
+      "className": "重装",
+      "classEn": "Defender",
+      "operatorKey": "silverash",
+      "operatorName": "银灰",
+      "operatorEn": "SilverAsh",
+      "mean": [
+        166,
+        172,
+        187
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5351515084505083
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5351515084505083
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(235 255 255 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(229 250 255 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(225 246 253 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(225 246 253 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(32 49 54 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(32 49 54 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(32 49 54 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(32 49 54 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "8af3a3cc2360a8c74e9809fb5281a644",
+      "title": "壁纸 08",
+      "ordinal": 8,
+      "source": "8AF3A3CC2360A8C74E9809FB5281A644.jpg",
+      "label": "横屏 · 亮调 · 中饱和 · 靛蓝",
+      "accent": "#f2b544",
+      "wide": "8af3a3cc2360a8c74e9809fb5281a644-wide.webp",
+      "narrow": "8af3a3cc2360a8c74e9809fb5281a644-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASogABEAPtlSpE0oJCOiN/qoAQAbCWMAtOgiIjV0C22M0qxTmdBvMAD+37h6yQumXHAYmJHMM3M+T5iuW24nOZS7TOkzAL4NOHtMXl9//de0RizoNHSRHCUr0g9ibBHrFCNxkk058nQ9juF4j0AAAA==",
+      "preview": "8af3a3cc2360a8c74e9809fb5281a644-preview.webp",
+      "saturation": 0.2376,
+      "blurSigma": 24.52,
+      "classKey": "caster",
+      "className": "术师",
+      "classEn": "Caster",
+      "operatorKey": "amiya",
+      "operatorName": "阿米娅",
+      "operatorEn": "Amiya",
+      "mean": [
+        163,
+        180,
+        210
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5550203490257265
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5550203490257265
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(230 255 255 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(230 255 255 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(227 253 255 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(227 253 255 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(28 49 56 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(28 49 56 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(28 49 56 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(28 49 56 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "90164de0952ef8a66f46b0c1d9e19cb0",
+      "title": "壁纸 09",
+      "ordinal": 9,
+      "source": "90164DE0952EF8A66F46B0C1D9E19CB0.jpg",
+      "label": "横屏 · 中间调 · 低饱和 · 近乎单色",
+      "accent": "#f2b544",
+      "wide": "90164de0952ef8a66f46b0c1d9e19cb0-wide.webp",
+      "narrow": "90164de0952ef8a66f46b0c1d9e19cb0-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBQCdASogABIAPulkqE2pJaOiMAgBIB0JZwDKtCGroM5Wd7xgmg8Vkk076BSdMFTUHAAA/vVvky83KzcF9u4DveWv0gcj71SFSyppUHtGN2/glxT0LdGLZ90WCjrATG7oRjWUdTB/i3kJoEgr06Lx3O0G6RAA",
+      "preview": "90164de0952ef8a66f46b0c1d9e19cb0-preview.webp",
+      "saturation": 0.1495,
+      "blurSigma": 22.83,
+      "classKey": "defender",
+      "className": "重装",
+      "classEn": "Defender",
+      "operatorKey": "silverash",
+      "operatorName": "银灰",
+      "operatorEn": "SilverAsh",
+      "mean": [
+        64,
+        66,
+        70
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.5026211643218994
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.5026211643218994
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(159 182 184 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(150 172 174 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(150 172 175 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(153 176 178 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(2 18 20 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(12 31 33 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(11 30 32 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(4 22 24 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "a897ddc19e122d7cb0ba70505db073fe",
+      "title": "壁纸 10",
+      "ordinal": 10,
+      "source": "A897DDC19E122D7CB0BA70505DB073FE.png",
+      "label": "横屏 · 中间调 · 高饱和 · 靛蓝",
+      "accent": "#f2b544",
+      "wide": "a897ddc19e122d7cb0ba70505db073fe-wide.webp",
+      "narrow": "a897ddc19e122d7cb0ba70505db073fe-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBQCdASogABIAPulgp00pJaOiMAgBIB0JQAALfZOtqfVjcgdnDiZ7SmbQJVOFlcu4kzXgAP7vSBD/CnZ5DknEMbHejOtHDJj9sniUif0GdNZrnUgfgXqet3FcbHBITih5xje8MsWYY07HtZhiOLYoDKfOJDg9NopoDhDM5AAAAA==",
+      "preview": "a897ddc19e122d7cb0ba70505db073fe-preview.webp",
+      "saturation": 0.4183,
+      "blurSigma": 33.26,
+      "classKey": "caster",
+      "className": "术师",
+      "classEn": "Caster",
+      "operatorKey": "amiya",
+      "operatorName": "阿米娅",
+      "operatorEn": "Amiya",
+      "mean": [
+        72,
+        75,
+        101
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.47220460772514333
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.47220460772514333
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(158 190 206 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(156 188 204 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(155 187 203 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(156 187 203 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(0 18 29 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(3 31 43 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(3 31 43 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(0 22 34 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "c90ef1248afbcba5f2034afedd601a05",
+      "title": "壁纸 11",
+      "ordinal": 11,
+      "source": "C90EF1248AFBCBA5F2034AFEDD601A05.png",
+      "label": "近方 · 中间调 · 低饱和 · 近乎单色",
+      "accent": "#e8b04b",
+      "wide": "c90ef1248afbcba5f2034afedd601a05-wide.webp",
+      "narrow": "c90ef1248afbcba5f2034afedd601a05-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwBQCdASogABkAPulkq08pJSQiMBgIASAdCWcAznQyyxU+RrMT+2c91T9j4B+ZEyvnIfRXa1gA/vBGBGmdJCR5CfF5SmKweu73CFOrU6thzHqyArT+EJXIi7po8L+urq7n+hE8Lurc4AxQvmWhomCOuajkeODuMlsQBXo0mRnoPRPflckPimCGy6Yqn2H4cAA=",
+      "preview": "c90ef1248afbcba5f2034afedd601a05-preview.webp",
+      "saturation": 0.0652,
+      "blurSigma": 16.72,
+      "classKey": "defender",
+      "className": "重装",
+      "classEn": "Defender",
+      "operatorKey": "silverash",
+      "operatorName": "银灰",
+      "operatorEn": "SilverAsh",
+      "mean": [
+        132,
+        127,
+        126
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(255 240 242 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(255 239 241 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(255 240 242 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(255 240 242 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(41 29 30 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(41 29 30 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(41 29 30 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(41 29 30 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    },
+    {
+      "id": "d03aad3af10c655b80e37c3fe5dec298",
+      "title": "壁纸 12",
+      "ordinal": 12,
+      "source": "D03AAD3AF10C655B80E37C3FE5DEC298.jpg",
+      "label": "横屏 · 亮调 · 低饱和 · 近乎单色",
+      "accent": "#e8b04b",
+      "wide": "d03aad3af10c655b80e37c3fe5dec298-wide.webp",
+      "narrow": "d03aad3af10c655b80e37c3fe5dec298-narrow.webp",
+      "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQBQCdASogABIAPuVipk0pJaOiMBgMASAciWcAv+wvuK7+5nzdlyGnkboWqjqIJAAgDb9JiAD+8D8kdsUxPLEXLz6ZopEKkvZ2M9WnCA69YCNe1eFY4ytv1Sg39eqagKkkAmggpX1qh3Tk9favZDEAAAA=",
+      "preview": "d03aad3af10c655b80e37c3fe5dec298-preview.webp",
+      "saturation": 0.0979,
+      "blurSigma": 18.34,
+      "classKey": "defender",
+      "className": "重装",
+      "classEn": "Defender",
+      "operatorKey": "silverash",
+      "operatorName": "银灰",
+      "operatorEn": "SilverAsh",
+      "mean": [
+        166,
+        172,
+        178
+      ],
+      "glass": {
+        "light": {
+          "rgb": [
+            247,
+            248,
+            250
+          ],
+          "min": 0.9,
+          "max": 0.93
+        },
+        "dark": {
+          "rgb": [
+            9,
+            12,
+            17
+          ],
+          "min": 0.9,
+          "max": 0.93
+        }
+      },
+      "surfaces": {
+        "--dsw-alias-bg-base": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5330442464351657
+          }
+        },
+        "--dsw-alias-bg-layer-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          }
+        },
+        "--dsw-alias-bg-layer-2": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-alias-bg-layer-3": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          }
+        },
+        "--dsw-alias-bg-overlay": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          }
+        },
+        "--dsw-alias-bg-mask-1": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          }
+        },
+        "--dsw-alias-bg-module-platform": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "--dsw-specific-sidebar-fill": {
+          "light": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "dark": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          }
+        }
+      },
+      "veilVars": {
+        "dark": {
+          "--dsh-amiya-veil-base": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.02,
+            "max": 0.5330442464351657
+          },
+          "--dsh-amiya-veil-layer-1": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass": {
+            "rgb": [
+              9,
+              12,
+              17
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        },
+        "light": {
+          "--dsh-amiya-veil-base-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.02,
+            "max": 0.36
+          },
+          "--dsh-amiya-veil-layer-1-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.86,
+            "max": 0.9
+          },
+          "--dsh-amiya-veil-layer-2-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-layer-3-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.94,
+            "max": 0.96
+          },
+          "--dsh-amiya-veil-overlay-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.95,
+            "max": 0.97
+          },
+          "--dsh-amiya-veil-mask-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.5,
+            "max": 0.58
+          },
+          "--dsh-amiya-veil-platform-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          },
+          "--dsh-amiya-veil-sidebar-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.52,
+            "max": 0.6
+          },
+          "--dsh-amiya-veil-glass-l": {
+            "rgb": [
+              247,
+              248,
+              250
+            ],
+            "min": 0.9,
+            "max": 0.93
+          }
+        }
+      },
+      "inkVars": {
+        "dark": {
+          "--dsh-amiya-ink": "rgb(236 255 255 / 100.0%)",
+          "--dsh-amiya-ink-2": "rgb(228 248 253 / 92.0%)",
+          "--dsh-amiya-ink-3": "rgb(225 245 249 / 80.0%)",
+          "--dsh-amiya-ink-4": "rgb(225 245 249 / 62.0%)"
+        },
+        "light": {
+          "--dsh-amiya-ink-l": "rgb(33 49 52 / 100.0%)",
+          "--dsh-amiya-ink-2-l": "rgb(33 49 52 / 92.0%)",
+          "--dsh-amiya-ink-3-l": "rgb(33 49 52 / 80.0%)",
+          "--dsh-amiya-ink-4-l": "rgb(33 49 52 / 62.0%)"
+        }
+      },
+      "fixed": {
+        "--dsw-alias-border-l1": {
+          "light": "rgb(146 100 12 / 34%)",
+          "dark": "rgb(242 181 68 / 18%)"
+        },
+        "--dsw-alias-border-l2": {
+          "light": "rgb(146 100 12 / 52%)",
+          "dark": "rgb(242 181 68 / 34%)"
+        },
+        "--dsw-alias-brand-primary": {
+          "light": "#9a6710",
+          "dark": "#f2b544"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,775 @@
+{
+  "schema": "dsh-amiya-wallpaper/manifest/v1",
+  "generator": "dsh-wallpaper-importer",
+  "generatedAt": "2026-09-26T18:32:01.428Z",
+  "canvases": {
+    "wide": {
+      "width": 2560,
+      "height": 1440
+    },
+    "narrow": {
+      "width": 1620,
+      "height": 2160
+    }
+  },
+  "quality": 84,
+  "count": 12,
+  "wallpapers": [
+    {
+      "id": "0d555849af53296a423101fb2319e4d3",
+      "index": 1,
+      "source": "0D555849AF53296A423101FB2319E4D3.jpg",
+      "sourceBytes": 1608995,
+      "sourceWidth": 1920,
+      "sourceHeight": 1080,
+      "sourceAspect": 1.7778,
+      "megapixels": 2.1,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.2379,
+        "saturationSpread": 0.1367,
+        "luminance": 0.3235,
+        "hue": 357,
+        "mean": {
+          "r": 82,
+          "g": 65,
+          "b": 66
+        },
+        "dominant": "#281818"
+      },
+      "treatment": {
+        "busyness": 0.249,
+        "blurSigma": 24.43,
+        "featherRatio": 0.1273,
+        "scrimAlpha": 0.203,
+        "scrimRatio": 0.2599,
+        "wingSaturation": 1.085,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 中饱和 · 暖红",
+      "palette": {
+        "dominant": "#281818",
+        "accent": "#8fd0ff"
+      },
+      "files": {
+        "wide": "0d555849af53296a423101fb2319e4d3-wide.webp",
+        "narrow": "0d555849af53296a423101fb2319e4d3-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBQCdASogABIAPulkqk6pJaOiMBgIASAdCWcAwNwQ8CK5S55s0T+buEm3ls76NaWyAAD+70Mmcgf+KlFr7gw5ejsjrJy7JIIaVK51ENFqLNZQ3t+30ULIXMbe6FGanqJkYIcQoAA=",
+        "preview": "0d555849af53296a423101fb2319e4d3-preview.webp",
+        "previewBytes": 42124
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 328754,
+          "foregroundWidth": 2560,
+          "featherBand": 326,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 220422,
+          "foregroundWidth": 1620,
+          "featherBand": 206,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "1aa5e564d740a65d2d7a12164e9a826f",
+      "index": 2,
+      "source": "1AA5E564D740A65D2D7A12164E9A826F.jpg",
+      "sourceBytes": 1586312,
+      "sourceWidth": 1778,
+      "sourceHeight": 1000,
+      "sourceAspect": 1.778,
+      "megapixels": 1.8,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.4014,
+        "saturationSpread": 0.237,
+        "luminance": 0.487,
+        "hue": 247,
+        "mean": {
+          "r": 88,
+          "g": 83,
+          "b": 120
+        },
+        "dominant": "#f8f8f8"
+      },
+      "treatment": {
+        "busyness": 0.423,
+        "blurSigma": 33.16,
+        "featherRatio": 0.1465,
+        "scrimAlpha": 0.282,
+        "scrimRatio": 0.2739,
+        "wingSaturation": 1.116,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 高饱和 · 靛蓝",
+      "palette": {
+        "dominant": "#f8f8f8",
+        "accent": "#f2b544"
+      },
+      "files": {
+        "wide": "1aa5e564d740a65d2d7a12164e9a826f-wide.webp",
+        "narrow": "1aa5e564d740a65d2d7a12164e9a826f-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAQBQCdASogABIAPulkqU2pJaQiMAgBIB0JQBllgicxErVW2de5pDI447s6x7fFkEAQAP7cXMH754vTgb8rrOiHukCY9j/oqwkuiiJqa+c1hUJ5tQ8n5YN179lksoLmyAobhGzc6/cxTdkAQuJaJot4FC3fTe93rKrWAG3HqI8iYNEwSCfIpCgAAAA=",
+        "preview": "1aa5e564d740a65d2d7a12164e9a826f-preview.webp",
+        "previewBytes": 61624
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 443630,
+          "foregroundWidth": 2560,
+          "featherBand": 375,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 309060,
+          "foregroundWidth": 1620,
+          "featherBand": 237,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "411e9b905a14497996bca303cf8429e6",
+      "index": 3,
+      "source": "411E9B905A14497996BCA303CF8429E6.jpg",
+      "sourceBytes": 3140956,
+      "sourceWidth": 1920,
+      "sourceHeight": 1080,
+      "sourceAspect": 1.7778,
+      "megapixels": 2.1,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.2012,
+        "saturationSpread": 0.1495,
+        "luminance": 0.5696,
+        "hue": 128,
+        "mean": {
+          "r": 132,
+          "g": 141,
+          "b": 134
+        },
+        "dominant": "#f8f8f8"
+      },
+      "treatment": {
+        "busyness": 0.231,
+        "blurSigma": 23.53,
+        "featherRatio": 0.1254,
+        "scrimAlpha": 0.261,
+        "scrimRatio": 0.2584,
+        "wingSaturation": 1.081,
+        "wingBrightness": 0.994,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 中饱和 · 青绿",
+      "palette": {
+        "dominant": "#f8f8f8",
+        "accent": "#8fd0ff"
+      },
+      "files": {
+        "wide": "411e9b905a14497996bca303cf8429e6-wide.webp",
+        "narrow": "411e9b905a14497996bca303cf8429e6-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABwBQCdASogABIAPulkq08pJSQiMBgIASAdCWMAx+Q0kVL+/akbd7Z8iceWRGR5hvmlsFrwAP7zo9EyBo1yVQ5kmVQtdzzMYuMLIVuh5P2V4VRj7ezAcs0O3AL1CnKbtjKoz4HhUYrWV3McJVlWEoMAfmzsQAAA",
+        "preview": "411e9b905a14497996bca303cf8429e6-preview.webp",
+        "previewBytes": 44096
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 336576,
+          "foregroundWidth": 2560,
+          "featherBand": 321,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 266310,
+          "foregroundWidth": 1620,
+          "featherBand": 203,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "7edeaee2037cd33e39f4bb1f1e358aab",
+      "index": 4,
+      "source": "7EDEAEE2037CD33E39F4BB1F1E358AAB.jpg",
+      "sourceBytes": 1444458,
+      "sourceWidth": 1920,
+      "sourceHeight": 1080,
+      "sourceAspect": 1.7778,
+      "megapixels": 2.1,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.1481,
+        "saturationSpread": 0.1413,
+        "luminance": 0.2309,
+        "hue": 12,
+        "mean": {
+          "r": 58,
+          "g": 54,
+          "b": 54
+        },
+        "dominant": "#080808"
+      },
+      "treatment": {
+        "busyness": 0.188,
+        "blurSigma": 21.42,
+        "featherRatio": 0.1207,
+        "scrimAlpha": 0.167,
+        "scrimRatio": 0.2551,
+        "wingSaturation": 1.074,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 暗调 · 低饱和 · 近乎单色",
+      "palette": {
+        "dominant": "#080808",
+        "accent": "#4fd1e0"
+      },
+      "files": {
+        "wide": "7edeaee2037cd33e39f4bb1f1e358aab-wide.webp",
+        "narrow": "7edeaee2037cd33e39f4bb1f1e358aab-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQBQCdASogABIAPulkqU0pJaQiMAgBIB0JaQDL4CHfwMhpq5x792FzWer+NaOBILwAAP7yo8a4DyeUZBSHgZmbBUI3plix9hJQLyr5e9jPAiTv1L5RcYAkDoIovQAA",
+        "preview": "7edeaee2037cd33e39f4bb1f1e358aab-preview.webp",
+        "previewBytes": 32524
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 343672,
+          "foregroundWidth": 2560,
+          "featherBand": 309,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 292922,
+          "foregroundWidth": 1620,
+          "featherBand": 196,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "832d435484f5905093721d315bb60134",
+      "index": 5,
+      "source": "832D435484F5905093721D315BB60134.jpg",
+      "sourceBytes": 5507333,
+      "sourceWidth": 2388,
+      "sourceHeight": 1483,
+      "sourceAspect": 1.6102,
+      "megapixels": 3.5,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.1795,
+        "saturationSpread": 0.0824,
+        "luminance": 0.488,
+        "hue": 267,
+        "mean": {
+          "r": 108,
+          "g": 103,
+          "b": 120
+        },
+        "dominant": "#282828"
+      },
+      "treatment": {
+        "busyness": 0.175,
+        "blurSigma": 20.75,
+        "featherRatio": 0.1193,
+        "scrimAlpha": 0.228,
+        "scrimRatio": 0.254,
+        "wingSaturation": 1.072,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 中饱和 · 紫罗兰",
+      "palette": {
+        "dominant": "#282828",
+        "accent": "#f2b544"
+      },
+      "files": {
+        "wide": "832d435484f5905093721d315bb60134-wide.webp",
+        "narrow": "832d435484f5905093721d315bb60134-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAACQBQCdASogABQAPtlUo00oJKMiN/qoAQAbCWMAvzggfIOdcUoN4Z4lvI0hQNvL7q1aG/GhAAD+HXCBRKItkLte6wgrjexC/qtfJjCriA3aDC2CiFrm7L4B3+vfqIQZHu7WSQkWqvdFZLk/R2BT1tfPtCPzA8vaAAA=",
+        "preview": "832d435484f5905093721d315bb60134-preview.webp",
+        "previewBytes": 41868
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 429770,
+          "foregroundWidth": 2319,
+          "featherBand": 277,
+          "blurredWings": true
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 368196,
+          "foregroundWidth": 1620,
+          "featherBand": 193,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "83d33525d0e9dbdf83dbf7be5844b51c",
+      "index": 6,
+      "source": "83D33525D0E9DBDF83DBF7BE5844B51C.jpg",
+      "sourceBytes": 11940668,
+      "sourceWidth": 7680,
+      "sourceHeight": 4320,
+      "sourceAspect": 1.7778,
+      "megapixels": 33.2,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.1791,
+        "saturationSpread": 0.1513,
+        "luminance": 0.8739,
+        "hue": 58,
+        "mean": {
+          "r": 219,
+          "g": 218,
+          "b": 187
+        },
+        "dominant": "#f8f8f8"
+      },
+      "treatment": {
+        "busyness": 0.216,
+        "blurSigma": 22.81,
+        "featherRatio": 0.1238,
+        "scrimAlpha": 0.334,
+        "scrimRatio": 0.2573,
+        "wingSaturation": 1.079,
+        "wingBrightness": 0.903,
+        "quality": "low"
+      },
+      "label": "横屏 · 亮调 · 中饱和 · 金黄",
+      "palette": {
+        "dominant": "#f8f8f8",
+        "accent": "#4fd1e0"
+      },
+      "files": {
+        "wide": "83d33525d0e9dbdf83dbf7be5844b51c-wide.webp",
+        "narrow": "83d33525d0e9dbdf83dbf7be5844b51c-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBQCdASogABIAPulkqU8pJaOiMBgIASAdCUAABY/uelGiMRfTuZQtNkTPkmkpiXRYAAD+tgM+nEkVOXbshzwPS/8+WFZcBals0dvUgsAqFl8jVJWZEOrzqxrWNZeLK5Gf5D+/X4+trgAA",
+        "preview": "83d33525d0e9dbdf83dbf7be5844b51c-preview.webp",
+        "previewBytes": 31900
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 230246,
+          "foregroundWidth": 2560,
+          "featherBand": 317,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 198972,
+          "foregroundWidth": 1620,
+          "featherBand": 201,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "87a14beae58e6309e52915cc62b9cd0b",
+      "index": 7,
+      "source": "87A14BEAE58E6309E52915CC62B9CD0B.jpg",
+      "sourceBytes": 2920313,
+      "sourceWidth": 7680,
+      "sourceHeight": 3945,
+      "sourceAspect": 1.9468,
+      "megapixels": 30.3,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.1343,
+        "saturationSpread": 0.0822,
+        "luminance": 0.7344,
+        "hue": 221,
+        "mean": {
+          "r": 166,
+          "g": 172,
+          "b": 187
+        },
+        "dominant": "#f8f8f8"
+      },
+      "treatment": {
+        "busyness": 0.143,
+        "blurSigma": 19.17,
+        "featherRatio": 0.1158,
+        "scrimAlpha": 0.283,
+        "scrimRatio": 0.2515,
+        "wingSaturation": 1.066,
+        "wingBrightness": 0.945,
+        "quality": "low"
+      },
+      "label": "横屏 · 亮调 · 低饱和 · 近乎单色",
+      "palette": {
+        "dominant": "#f8f8f8",
+        "accent": "#e8b04b"
+      },
+      "files": {
+        "wide": "87a14beae58e6309e52915cc62b9cd0b-wide.webp",
+        "narrow": "87a14beae58e6309e52915cc62b9cd0b-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASogABAAPuluq08pJyQiMAgBIB0JZQCdAB45OFVTTJo7oYaAAOHBzzXjKviq3UoNBh0X58YAG3dtpvTZ48gg7kKe8KE4IMxko9iAxQixRgrOdn/K8AA=",
+        "preview": "87a14beae58e6309e52915cc62b9cd0b-preview.webp",
+        "previewBytes": 40912
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 324008,
+          "foregroundWidth": 2560,
+          "featherBand": 296,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 231836,
+          "foregroundWidth": 1620,
+          "featherBand": 188,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "8af3a3cc2360a8c74e9809fb5281a644",
+      "index": 8,
+      "source": "8AF3A3CC2360A8C74E9809FB5281A644.jpg",
+      "sourceBytes": 1614267,
+      "sourceWidth": 5400,
+      "sourceHeight": 2869,
+      "sourceAspect": 1.8822,
+      "megapixels": 15.5,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.2376,
+        "saturationSpread": 0.1401,
+        "luminance": 0.8246,
+        "hue": 220,
+        "mean": {
+          "r": 163,
+          "g": 180,
+          "b": 210
+        },
+        "dominant": "#e8e8f8"
+      },
+      "treatment": {
+        "busyness": 0.25,
+        "blurSigma": 24.52,
+        "featherRatio": 0.1275,
+        "scrimAlpha": 0.329,
+        "scrimRatio": 0.26,
+        "wingSaturation": 1.085,
+        "wingBrightness": 0.918,
+        "quality": "low"
+      },
+      "label": "横屏 · 亮调 · 中饱和 · 靛蓝",
+      "palette": {
+        "dominant": "#e8e8f8",
+        "accent": "#f2b544"
+      },
+      "files": {
+        "wide": "8af3a3cc2360a8c74e9809fb5281a644-wide.webp",
+        "narrow": "8af3a3cc2360a8c74e9809fb5281a644-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABwBACdASogABEAPtlSpE0oJCOiN/qoAQAbCWMAtOgiIjV0C22M0qxTmdBvMAD+37h6yQumXHAYmJHMM3M+T5iuW24nOZS7TOkzAL4NOHtMXl9//de0RizoNHSRHCUr0g9ibBHrFCNxkk058nQ9juF4j0AAAA==",
+        "preview": "8af3a3cc2360a8c74e9809fb5281a644-preview.webp",
+        "previewBytes": 40702
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 335148,
+          "foregroundWidth": 2560,
+          "featherBand": 326,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 325304,
+          "foregroundWidth": 1620,
+          "featherBand": 207,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "90164de0952ef8a66f46b0c1d9e19cb0",
+      "index": 9,
+      "source": "90164DE0952EF8A66F46B0C1D9E19CB0.jpg",
+      "sourceBytes": 1110722,
+      "sourceWidth": 2304,
+      "sourceHeight": 1296,
+      "sourceAspect": 1.7778,
+      "megapixels": 3,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.1495,
+        "saturationSpread": 0.1867,
+        "luminance": 0.2845,
+        "hue": 205,
+        "mean": {
+          "r": 64,
+          "g": 66,
+          "b": 70
+        },
+        "dominant": "#080808"
+      },
+      "treatment": {
+        "busyness": 0.217,
+        "blurSigma": 22.83,
+        "featherRatio": 0.1238,
+        "scrimAlpha": 0.186,
+        "scrimRatio": 0.2573,
+        "wingSaturation": 1.079,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 低饱和 · 近乎单色",
+      "palette": {
+        "dominant": "#080808",
+        "accent": "#f2b544"
+      },
+      "files": {
+        "wide": "90164de0952ef8a66f46b0c1d9e19cb0-wide.webp",
+        "narrow": "90164de0952ef8a66f46b0c1d9e19cb0-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBQCdASogABIAPulkqE2pJaOiMAgBIB0JZwDKtCGroM5Wd7xgmg8Vkk076BSdMFTUHAAA/vVvky83KzcF9u4DveWv0gcj71SFSyppUHtGN2/glxT0LdGLZ90WCjrATG7oRjWUdTB/i3kJoEgr06Lx3O0G6RAA",
+        "preview": "90164de0952ef8a66f46b0c1d9e19cb0-preview.webp",
+        "previewBytes": 28598
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 162140,
+          "foregroundWidth": 2560,
+          "featherBand": 317,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 160718,
+          "foregroundWidth": 1620,
+          "featherBand": 201,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "a897ddc19e122d7cb0ba70505db073fe",
+      "index": 10,
+      "source": "A897DDC19E122D7CB0BA70505DB073FE.png",
+      "sourceBytes": 10593441,
+      "sourceWidth": 3840,
+      "sourceHeight": 2176,
+      "sourceAspect": 1.7647,
+      "megapixels": 8.4,
+      "format": "PNG",
+      "analysis": {
+        "saturation": 0.4183,
+        "saturationSpread": 0.2208,
+        "luminance": 0.4074,
+        "hue": 230,
+        "mean": {
+          "r": 72,
+          "g": 75,
+          "b": 101
+        },
+        "dominant": "#080818"
+      },
+      "treatment": {
+        "busyness": 0.425,
+        "blurSigma": 33.26,
+        "featherRatio": 0.1468,
+        "scrimAlpha": 0.263,
+        "scrimRatio": 0.274,
+        "wingSaturation": 1.117,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "横屏 · 中间调 · 高饱和 · 靛蓝",
+      "palette": {
+        "dominant": "#080818",
+        "accent": "#f2b544"
+      },
+      "files": {
+        "wide": "a897ddc19e122d7cb0ba70505db073fe-wide.webp",
+        "narrow": "a897ddc19e122d7cb0ba70505db073fe-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBQCdASogABIAPulgp00pJaOiMAgBIB0JQAALfZOtqfVjcgdnDiZ7SmbQJVOFlcu4kzXgAP7vSBD/CnZ5DknEMbHejOtHDJj9sniUif0GdNZrnUgfgXqet3FcbHBITih5xje8MsWYY07HtZhiOLYoDKfOJDg9NopoDhDM5AAAAA==",
+        "preview": "a897ddc19e122d7cb0ba70505db073fe-preview.webp",
+        "previewBytes": 45076
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 461104,
+          "foregroundWidth": 2541,
+          "featherBand": 373,
+          "blurredWings": true
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 390206,
+          "foregroundWidth": 1620,
+          "featherBand": 238,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "c90ef1248afbcba5f2034afedd601a05",
+      "index": 11,
+      "source": "C90EF1248AFBCBA5F2034AFEDD601A05.png",
+      "sourceBytes": 9890242,
+      "sourceWidth": 3308,
+      "sourceHeight": 2576,
+      "sourceAspect": 1.2842,
+      "megapixels": 8.5,
+      "format": "PNG",
+      "analysis": {
+        "saturation": 0.0652,
+        "saturationSpread": 0.0814,
+        "luminance": 0.5229,
+        "hue": 10,
+        "mean": {
+          "r": 132,
+          "g": 127,
+          "b": 126
+        },
+        "dominant": "#383838"
+      },
+      "treatment": {
+        "busyness": 0.094,
+        "blurSigma": 16.72,
+        "featherRatio": 0.1104,
+        "scrimAlpha": 0.219,
+        "scrimRatio": 0.2476,
+        "wingSaturation": 1.057,
+        "wingBrightness": 1,
+        "quality": "low"
+      },
+      "label": "近方 · 中间调 · 低饱和 · 近乎单色",
+      "palette": {
+        "dominant": "#383838",
+        "accent": "#e8b04b"
+      },
+      "files": {
+        "wide": "c90ef1248afbcba5f2034afedd601a05-wide.webp",
+        "narrow": "c90ef1248afbcba5f2034afedd601a05-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACwBQCdASogABkAPulkq08pJSQiMBgIASAdCWcAznQyyxU+RrMT+2c91T9j4B+ZEyvnIfRXa1gA/vBGBGmdJCR5CfF5SmKweu73CFOrU6thzHqyArT+EJXIi7po8L+urq7n+hE8Lurc4AxQvmWhomCOuajkeODuMlsQBXo0mRnoPRPflckPimCGy6Yqn2H4cAA=",
+        "preview": "c90ef1248afbcba5f2034afedd601a05-preview.webp",
+        "previewBytes": 35072
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 237328,
+          "foregroundWidth": 1849,
+          "featherBand": 204,
+          "blurredWings": true
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 233774,
+          "foregroundWidth": 1620,
+          "featherBand": 179,
+          "blurredWings": false
+        }
+      }
+    },
+    {
+      "id": "d03aad3af10c655b80e37c3fe5dec298",
+      "index": 12,
+      "source": "D03AAD3AF10C655B80E37C3FE5DEC298.jpg",
+      "sourceBytes": 2183503,
+      "sourceWidth": 1920,
+      "sourceHeight": 1080,
+      "sourceAspect": 1.7778,
+      "megapixels": 2.1,
+      "format": "JPEG",
+      "analysis": {
+        "saturation": 0.0979,
+        "saturationSpread": 0.0972,
+        "luminance": 0.7025,
+        "hue": 212,
+        "mean": {
+          "r": 166,
+          "g": 172,
+          "b": 178
+        },
+        "dominant": "#f8f8f8"
+      },
+      "treatment": {
+        "busyness": 0.127,
+        "blurSigma": 18.34,
+        "featherRatio": 0.114,
+        "scrimAlpha": 0.271,
+        "scrimRatio": 0.2501,
+        "wingSaturation": 1.063,
+        "wingBrightness": 0.954,
+        "quality": "low"
+      },
+      "label": "横屏 · 亮调 · 低饱和 · 近乎单色",
+      "palette": {
+        "dominant": "#f8f8f8",
+        "accent": "#e8b04b"
+      },
+      "files": {
+        "wide": "d03aad3af10c655b80e37c3fe5dec298-wide.webp",
+        "narrow": "d03aad3af10c655b80e37c3fe5dec298-narrow.webp",
+        "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQBQCdASogABIAPuVipk0pJaOiMBgMASAciWcAv+wvuK7+5nzdlyGnkboWqjqIJAAgDb9JiAD+8D8kdsUxPLEXLz6ZopEKkvZ2M9WnCA69YCNe1eFY4ytv1Sg39eqagKkkAmggpX1qh3Tk9favZDEAAAA=",
+        "preview": "d03aad3af10c655b80e37c3fe5dec298-preview.webp",
+        "previewBytes": 34152
+      },
+      "render": {
+        "wide": {
+          "width": 2560,
+          "height": 1440,
+          "bytes": 270346,
+          "foregroundWidth": 2560,
+          "featherBand": 292,
+          "blurredWings": false
+        },
+        "narrow": {
+          "width": 1620,
+          "height": 2160,
+          "bytes": 196938,
+          "foregroundWidth": 1620,
+          "featherBand": 185,
+          "blurredWings": false
+        }
+      }
+    }
+  ]
+}
