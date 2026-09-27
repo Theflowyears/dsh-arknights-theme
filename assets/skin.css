@@ -41,7 +41,7 @@ html[data-amiya-skin='1'] {
   background-color: #05070a;
   /* Fallbacks so that even a stylesheet loaded without its client half paints a
      wallpaper instead of an empty canvas. */
-  --dsh-amiya-full: var(--dsh-amiya-wide-image, url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-wide.webp"));
+  --dsh-amiya-full: var(--dsh-amiya-wide-image, url("/amiya-wallpaper/d03aad3af10c655b80e37c3fe5dec298-wide.webp"));
   --dsh-amiya-accent: #f2b544;
 }
 
@@ -58,7 +58,7 @@ html[data-amiya-skin='1'] body::before {
   background-image:
     radial-gradient(125% 95% at 50% 36%, rgb(4 6 9 / 0%) 30%, rgb(4 6 9 / 58%) 100%),
     var(--dsh-amiya-full, none),
-    var(--dsh-amiya-lqip, url("data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBQCdASogABIAPulkqk6pJaOiMBgIASAdCWcAwNwQ8CK5S55s0T+buEm3ls76NaWyAAD+70Mmcgf+KlFr7gw5ejsjrJy7JIIaVK51ENFqLNZQ3t+30ULIXMbe6FGanqJkYIcQoAA="));
+    var(--dsh-amiya-lqip, url("data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQBQCdASogABIAPuVipk0pJaOiMBgMASAciWcAv+wvuK7+5nzdlyGnkboWqjqIJAAgDb9JiAD+8D8kdsUxPLEXLz6ZopEKkvZ2M9WnCA69YCNe1eFY4ytv1Sg39eqagKkkAmggpX1qh3Tk9favZDEAAAA="));
   background-size: cover, cover, cover;
   background-position: center center, center center, center center;
   background-repeat: no-repeat, no-repeat, no-repeat;
@@ -71,8 +71,8 @@ html[data-amiya-skin='1'] body::before {
   html[data-amiya-skin='1'] {
     --dsh-amiya-full: var(
       --dsh-amiya-narrow-image,
-      url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-narrow.webp"),
-      var(--dsh-amiya-wide-image, url("/amiya-wallpaper/0d555849af53296a423101fb2319e4d3-wide.webp"))
+      url("/amiya-wallpaper/d03aad3af10c655b80e37c3fe5dec298-narrow.webp"),
+      var(--dsh-amiya-wide-image, url("/amiya-wallpaper/d03aad3af10c655b80e37c3fe5dec298-wide.webp"))
     );
   }
 }
@@ -443,6 +443,9 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__main
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__sub {
   color: rgb(138 90 6 / 95%);
 }
+/* The blank-session hero mark. It is the Arknights wordmark now, not a portrait: sized by
+   height and allowed to keep its own aspect, with no circular clip (which was there for
+   the round avatar this slot used to carry). */
 .amiya-hero {
   display: inline-flex;
   align-items: center;
@@ -451,10 +454,10 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-brand-name__sub 
 }
 .amiya-hero img {
   display: block;
-  width: 100%;
+  max-width: none;
+  width: auto;
   height: 100%;
   object-fit: contain;
-  border-radius: 50%;
 }
 
 /* The sidebar-foot wallpaper control. */
