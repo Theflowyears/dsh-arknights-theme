@@ -474,7 +474,8 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-hero {
 }
 
 /*
- * The headline copy, relettered: 探索未至之境 -> 重铸未来，方舟启航.
+ * The headline copy, relettered: 探索未至之境 -> 重铸未来，方舟启航, and set as a wordmark
+ * rather than as plain copy.
  *
  * The string is the host's own translation (`hero.headline` in the conversation namespace),
  * so it cannot be changed by editing anything of ours — the choices were to register a
@@ -491,6 +492,12 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-hero {
  * The stylesheet is served as `text/css; charset=utf-8` and injected as a JS string, so the
  * CJK in `content` decodes correctly on both paths. `line-height` comes from the headline
  * (32px, a length, so it is inherited unchanged) and survives the zeroed font-size.
+ *
+ * The "art word" treatment is the game's own metal-on-glass idiom: a warm gradient running
+ * through the glyphs (`background-clip: text`), a hairline stroke in dark amber to etch the
+ * edges, and a warm outer glow. Each palette gets its own gradient — the light plate needs
+ * ink darker than the plate, the dark one needs it brighter — with the stroke flipping from
+ * dark to light so the edge stays an edge in both.
  */
 html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > span:first-child {
   font-size: 0;
@@ -499,8 +506,61 @@ html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge'])
 html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > span:first-child::before {
   content: '重铸未来，方舟启航';
   font-size: 26px;
-  font-weight: 500;
-  letter-spacing: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background-image: linear-gradient(180deg, #fff4da 0%, #f2b544 38%, #b0711a 66%, #ffe7b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  -webkit-text-stroke: 0.5px rgb(58 34 4 / 55%);
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 45%)) drop-shadow(0 0 14px rgb(242 181 68 / 40%));
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class$='_titleGroup']:has(> [class$='_previewBadge']) > span:first-child::before {
+  background-image: linear-gradient(180deg, #8a5a06 0%, #c1851f 36%, #6b3f04 68%, #d8a24a 100%);
+  -webkit-text-stroke: 0.5px rgb(255 244 218 / 60%);
+  filter: drop-shadow(0 1px 1px rgb(255 255 255 / 45%)) drop-shadow(0 0 12px rgb(154 103 16 / 26%));
+}
+
+/*
+ * The badge beside it — 预览版 — brought into the same idiom, and given the game's own glyph
+ * for "unfinalised draft" (`图标 未定稿.png`). The icon is white line art, so like every other
+ * game glyph here it is painted through a mask rather than pasted, which is what lets it take
+ * the palette's own ink instead of vanishing on the light plate.
+ */
+html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > [class$='_previewBadge'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 1px 8px 1px 6px;
+  color: rgb(242 181 68 / 94%);
+  background: rgb(242 181 68 / 14%);
+  border: 0.5px solid rgb(242 181 68 / 45%);
+  border-radius: 999px;
+  font-family: var(--ds-font-family-code, ui-monospace, 'SF Mono', Consolas, monospace);
+}
+html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > [class$='_previewBadge']::before {
+  content: '';
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background-color: rgb(242 181 68);
+  -webkit-mask-image: url('data:image/png;base64,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');
+  mask-image: url('data:image/png;base64,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');
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class$='_titleGroup']:has(> [class$='_previewBadge']) > [class$='_previewBadge'] {
+  color: rgb(74 44 0 / 96%);
+  background: rgb(154 103 16 / 13%);
+  border-color: rgb(154 103 16 / 45%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class$='_titleGroup']:has(> [class$='_previewBadge']) > [class$='_previewBadge']::before {
+  background-color: rgb(74 44 0);
 }
 
 /* The sidebar-foot wallpaper control. */
