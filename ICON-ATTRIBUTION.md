@@ -11,6 +11,8 @@ Source: [PRTS wiki](https://prts.wiki/w/%E9%A6%96%E9%A1%B5) · fetched by `fetch
 | Bundle key | PRTS file | Role |
 | --- | --- | --- |
 | `amiya-special` | 文件:Avatar special 35.png（用户提供） | New-session glyph: the illustration the user supplied. It is a 150x150 scene with a black vignette reaching every edge and no transparency (0.0% of pixels are clear), so it is not usable as-is at glyph size — the `medallion` transform cuts it to the lit subject and masks it to a soft circle, which removes the frame and lifts the exposure. |
+| `sign-doctor` | 博士签名（用户提供：D:\夸克下载\签名\博士.png） | The Doctor's handwritten signature, 603x172, dark ink on transparency (median alpha 0.91). Signs the confirm button of the question card, beside 提交. |
+| `sign-theresa` | 特蕾西娅签名（用户提供：D:\夸克下载\签名\特蕾西娅.png） | Theresa's handwritten signature, 616x264, dark ink on transparency (median alpha 1.00). Signs the skip button of the question card, beside 跳过本题. |
 | `sign-kaltsit` | 干员签名 · 凯尔希（用户提供的本地文件 `signatures/kaltsit.png`） | Kal'tsit's handwritten signature, 190x55, dark ink on transparency — the occupant of the dispatch bar slot between the wallpaper controls and the model switcher. PRTS hosts only Amiya's autograph, so this comes from the `signatures/` drop folder; the slot falls back to `sign-amiya` if the file is not there. |
 | `rhodes-island` | [文件:Logo 罗德岛.png](https://media.prts.wiki/4/41/Logo_%E7%BD%97%E5%BE%B7%E5%B2%9B.png) | Sidebar brand mark. 510x510, the faction emblem. |
 | `amiya-avatar` | [文件:头像 阿米娅.png](https://media.prts.wiki/3/36/%E5%A4%B4%E5%83%8F_%E9%98%BF%E7%B1%B3%E5%A8%85.png) | Amiya operator avatar. Picker header and the footer wallpaper button. |
