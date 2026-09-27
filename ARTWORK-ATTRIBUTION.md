@@ -6,7 +6,13 @@
 - 游戏美术（12 张壁纸）版权归 **鹰角网络（Hypergryph / Studio Montagne）** 所有；
 - **每一张插画仍归绘制它的画师本人所有**——游戏内美术的商业权利与画师的著作权是两件事，这里明确分开声明；
 - 图标素材取自 **PRTS Wiki**（`media.prts.wiki`），版权同样归鹰角网络与相应画师所有，来源与用途见
-  [ICON-ATTRIBUTION.md](./ICON-ATTRIBUTION.md)。
+  [ICON-ATTRIBUTION.md](./ICON-ATTRIBUTION.md)；
+- **四张手写签名**（阿米娅、凯尔希、博士、特蕾西娅）的原图在 `assets/signatures/`，同时被内联进样式表，
+  版权归鹰角网络所有。
+- The icons come from the **PRTS wiki** (`media.prts.wiki`) and belong to Hypergryph and the
+  respective artists; per-item provenance is in [ICON-ATTRIBUTION.md](./ICON-ATTRIBUTION.md).
+- The **four handwritten signatures** (Amiya, Kal'tsit, the Doctor, Theresa) are in
+  `assets/signatures/` and are also inlined into the stylesheet. They belong to Hypergryph too.
 
 ## 使用范围 / Scope of use
 

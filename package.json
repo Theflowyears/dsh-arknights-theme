@@ -1,7 +1,7 @@
 {
   "name": "dsh-arknights-theme",
   "version": "1.0.0",
-  "description": "Arknights theme pack for the DSH Web GUI: wallpaper skin with saturation-driven edge blur, an acrylic sidebar, a Rhodes Island icon treatment, and a one-click wallpaper picker.",
+  "description": "为《明日方舟》玩家在 DSH Web 上构建沉浸感：12 张整屏壁纸（按画面自适应的边缘虚化）、按每张图解算的玻璃与文字色、罗德岛图标体系，以及签字式的授权与选择交互。 / Building immersion for Arknights players on the DSH Web GUI: twelve full-screen wallpapers with per-image edge blur, glass and ink solved from each picture, Rhodes Island iconography, and sign-off style approval and choice interactions.",
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icons/amiya-mark.svg",
@@ -37,10 +37,11 @@
     "deepseek-harness",
     "dsh",
     "dsh-plugin",
-    "wallpaper",
-    "skin",
     "arknights",
-    "amiya",
+    "rhodes-island",
+    "wallpaper",
+    "theme",
+    "immersion",
     "acrylic"
   ],
   "engines": {
