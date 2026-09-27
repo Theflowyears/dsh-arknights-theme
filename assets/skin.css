@@ -473,6 +473,36 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-hero {
   filter: drop-shadow(0 0 14px rgb(154 103 16 / 20%));
 }
 
+/*
+ * The headline copy, relettered: 探索未至之境 -> 重铸未来，方舟启航.
+ *
+ * The string is the host's own translation (`hero.headline` in the conversation namespace),
+ * so it cannot be changed by editing anything of ours — the choices were to register a
+ * competing dictionary for another package's namespace, which is undocumented and would break
+ * the whole skin if the registry rejects a duplicate, or to reletter it in CSS. This is the
+ * second: the span's own text is collapsed to zero size and the replacement is drawn in a
+ * pseudo-element, which leaves the host's node, its translation and the preview badge beside
+ * it untouched.
+ *
+ * The target is the hero's title group specifically — the only one that carries a preview
+ * badge — rather than a bare `_titleGroup`, because that local name is generic enough to
+ * belong to other modules.
+ *
+ * The stylesheet is served as `text/css; charset=utf-8` and injected as a JS string, so the
+ * CJK in `content` decodes correctly on both paths. `line-height` comes from the headline
+ * (32px, a length, so it is inherited unchanged) and survives the zeroed font-size.
+ */
+html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > span:first-child {
+  font-size: 0;
+  letter-spacing: 0;
+}
+html[data-amiya-skin='1'] [class$='_titleGroup']:has(> [class$='_previewBadge']) > span:first-child::before {
+  content: '重铸未来，方舟启航';
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+
 /* The sidebar-foot wallpaper control. */
 .amiya-action {
   position: relative;
