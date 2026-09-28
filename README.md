@@ -16,7 +16,7 @@ a coat of theme paint.
 **预构建包（推荐） / Prebuilt tarball (recommended)**
 
 ```sh
-dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.0/dsh-arknights-theme-1.0.0.tgz
+dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.1/dsh-arknights-theme-1.0.1.tgz
 ```
 
 **从仓库安装 / From the repository**
@@ -95,7 +95,7 @@ This is the manual: what the package is made of, what is measured per wallpaper,
 glyph is used, how to rebuild it, and where its limits are. Installation and the highlight reel
 live on the repository front page.
 
-- 版本 / Version: **1.0.0**
+- 版本 / Version: **1.0.1**
 - 适用 / Requires: DSH Web，`@deepseek-ai/cordis` 4.x
 - 许可 / Licence: 代码 MIT，美术素材不在 MIT 范围内（见 [版权与署名](#版权与署名--rights-and-credit)）
 
