@@ -1,5 +1,7 @@
 # 明日方舟主题美化包 · Arknights Theme Pack
 
+> 一款专为粥批定制的明日方舟主题拓展包，旨在为每一位明日方舟提供最沉浸式的DSH体验，无论是背景里的阿米娅还是各处细节中的干员签名，都在提醒你一件事：博士，您还有许多事情需要处理。 现在还不能休息哦。
+
 **为《明日方舟》玩家在 DeepSeek Harness Web 上构建沉浸感。**
 **Building immersion for Arknights players on the DeepSeek Harness Web GUI.**
 
