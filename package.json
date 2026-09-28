@@ -16,7 +16,10 @@
   },
   "files": [
     "lib",
-    "assets",
+    "assets/*.webp",
+    "assets/*.json",
+    "assets/*.css",
+    "assets/signatures",
     "icons",
     "cordis.patch.yml",
     "README.md",

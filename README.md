@@ -13,13 +13,23 @@ a coat of theme paint.
 
 ## 安装 / Install
 
+**预构建包（推荐） / Prebuilt tarball (recommended)**
+
+```sh
+dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.0/dsh-arknights-theme-1.0.0.tgz
+```
+
+**从仓库安装 / From the repository**
+
 ```sh
 dsh plugin add Theflowyears/dsh-arknights-theme
 ```
 
-装完**重启 `dsh web`** 再刷新页面。插件在 `package.json` 里声明了 `dsh.bundle`，所以可以按仓库直接安装。
+装完**重启 `dsh web`** 再刷新页面。插件在 `package.json` 里声明了 `dsh.bundle`，两种装法都行；
+预构建包已经把客户端与素材打包好，省掉构建授权那一步。
 Restart `dsh web` afterwards, then reload. The package declares `dsh.bundle`, so it installs
-straight from the repository. Requires a DSH build whose `@deepseek-ai/cordis` is 4.x.
+straight from the repository; the prebuilt tarball ships the client and assets ready-made, which
+skips the build-approval step. Requires a DSH build whose `@deepseek-ai/cordis` is 4.x.
 
 ## 亮点 / Highlights
 
