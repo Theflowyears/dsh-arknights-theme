@@ -160,19 +160,44 @@ Twelve, each measured once at import time, with the result recorded in `assets/w
 This is the heart of the skin, and the difference between it and "set a background image".
 
 1. **文字色来自壁纸，而不是写死的黑或白。**
-   取画面的主色相，用 OKLCH 求解亮度，保证正文在最差的那层玻璃上仍达 **WCAG AA**（正文 ≥ 4.5:1）。
+   取画面的主色相，用 OKLCH 求解亮度，保证正文在承载它的每一层面板上仍达 **WCAG AA**（≥ 4.5:1）。
+   亮度只允许为了这一点颜色偏离配色自带的文字色 **0.055**（OKLCH 亮度）——否则就会像上一版那样，
+   为了 0.025 的色度把文字压到灰扑扑的 L 0.75，看着像褪色而不是文字。
    **Ink is derived from the picture**, not hard-coded: the hue comes from the image, the
-   lightness is solved in OKLCH so body text keeps **WCAG AA** (≥ 4.5:1) on the worst surface.
-2. **玻璃的浓度按画面亮度解算**，并随沉浸度滑杆插值，两端分别是"完全沉浸"和"最好读"。
-   **Glass opacity is solved from the picture's luminance** and interpolated by the immersion
-   dial, whose ends are "fully immersive" and "most readable".
-3. **文字层最低不透明度 0.45**（`TEXT_SURFACE_MIN_ALPHA`），低于它就不再让画面透过来影响阅读。
-   **Text surfaces never go below 0.45 alpha** (`TEXT_SURFACE_MIN_ALPHA`).
+   lightness is solved in OKLCH so body text keeps **WCAG AA** (≥ 4.5:1) on every panel it lands on.
+   The tint may pull the text's lightness **0.055** (OKLCH) away from the palette's own label
+   colour and no further — the previous release spent 0.24 of lightness to buy 0.025 of chroma and
+   shipped grey-looking text.
+2. **玻璃的浓度也来自画面**：亮壁纸得到更厚的霜，暗壁纸得到更薄的板，沉浸度滑杆在这个区间内
+   插值，两端分别是"完全沉浸"和"最好读"；读数解算只作为下限，保证不会薄到读不清。
+   **Glass opacity is solved from the picture's luminance** — a bright wallpaper gets a heavier
+   frost than a dark one — and the immersion dial interpolates within that band, between "fully
+   immersive" and "most readable"; the readability solve is a lower bound, not the whole answer.
+3. **承载文字的每一层面板，最薄处也不低于 0.45 不透明度**（`TEXT_SURFACE_MIN_ALPHA`，实测最低
+   0.500）。画布 `bg-base` 是唯一允许更薄的一层，它的薄端按对比度解算：**暗色配色满沉浸仍
+   ≥ 4.5:1**（实测最差 4.84:1）；**浅色配色的白纱只发解算值的一半**——半张白纸盖上去就不是壁纸了，
+   所以浅色配色配暗壁纸在极高沉浸度落到 3.5–3.9:1，守住 3:1 的可读底线但低于 AA。选择器显示的是
+   实测值，不是承诺值。
+   **Every panel that carries text stays at or above 0.45 alpha** (`TEXT_SURFACE_MIN_ALPHA`;
+   measured floor 0.500). The `bg-base` canvas is the one layer allowed to go thinner, and its thin
+   end is solved for contrast: the **dark palette still clears 4.5:1 at full immersion** (measured
+   worst 4.84:1), while the **light palette ships half of its solved white veil** — half a white
+   sheet over a dark wallpaper is no longer a wallpaper — which puts the light palette on dark
+   wallpapers at 3.5–3.9:1 at the far end of the dial: above the 3:1 legibility floor, below AA. The
+   picker shows the measured figure, not a promise.
 4. 选择器实时显示当前壁纸在当前沉浸度下的**实测对比度**。
    The picker shows the *measured* contrast for the current picture at the current immersion.
 
 浅色与深色两套配色各自解算，互不借用。
 The light and dark palettes are solved independently; neither borrows the other's numbers.
+
+以上五条由 `tools/audit-core.mjs` 逐条对着**构建产物里的数字**核对，而不是对着"本该生成这些数字的
+代码"核对：读的是打进 `lib/client.js` 的那份解算结果，任何一条不成立就以非零码退出。在仓库根目录
+执行 `node tools/audit-core.mjs` 即可自己跑一遍。
+All five are checked by `tools/audit-core.mjs` against the numbers *in the build output* — the
+solved values baked into `lib/client.js` — rather than against the code that was supposed to
+produce them; a claim that stops being true fails the script. Run it yourself from the repository
+root with `node tools/audit-core.mjs`.
 
 ---
 

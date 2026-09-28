@@ -784,14 +784,18 @@ html[data-amiya-skin='1'] [class*='_sidebarCol'] [class*='_settingsArea']:not(:h
   min-height: 34px;
   justify-content: center;
   border-radius: 12px;
-  background: var(--dsh-amiya-foot-plate, rgb(242 181 68 / 10%));
+  /* A fixed accent wash, not a solved surface: nothing in the build solves a value for it, so it
+     is written literally. A var() slot with no writer is exactly how the glass behind the composer
+     card spent a release falling back to a constant, and audit-core.mjs now refuses to let the
+     stylesheet read a custom property nobody publishes. */
+  background: rgb(242 181 68 / 10%);
   outline: 1px solid rgb(242 181 68 / 26%);
   outline-offset: -1px;
 }
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_footArea']:not(:has([role='dialog'], [role='alertdialog'])) button,
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_footerActions']:not(:has([role='dialog'], [role='alertdialog'])) button,
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol'] [class*='_settingsArea']:not(:has([role='dialog'], [role='alertdialog'])) button {
-  background: var(--dsh-amiya-foot-plate, rgb(154 103 16 / 10%));
+  background: rgb(154 103 16 / 10%);
   outline-color: rgb(146 100 12 / 32%);
 }
 /* This skin's own entry: the picker and the quick switch on ONE row, as asked, and
@@ -1238,7 +1242,7 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
   background: linear-gradient(
     to bottom,
     transparent,
-    var(--dsh-amiya-foot-plate, rgb(242 181 68 / 10%))
+    rgb(242 181 68 / 10%)
   ) !important;
 }
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_fade'] {
