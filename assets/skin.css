@@ -1638,8 +1638,18 @@ html[data-amiya-skin='1'] [data-composer-stats] [class$='_pill'] > svg {
 html[data-amiya-skin='1'] [data-composer-stats] [class$='_pill']::before {
   content: '';
   flex: none;
-  width: 18px;
-  height: 18px;
+  /* Centred the way the host's own icon is centred, and then some. The "not centred" reading came
+     from the baseline: a pseudo-element inherits the pill's `line-height` (20px), and an
+     inline-level box with a 20px line-height sits on the text baseline rather than on the pill's
+     optical centre. `display: block` + `align-self: center` + `line-height: 0` takes the baseline
+     out of it. Sized 16px rather than 18px because the host's own icon is 14px inside a 20px line
+     box: 16px is the largest glyph that still leaves a pixel of air above and below. */
+  display: block;
+  align-self: center;
+  line-height: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
   background-color: rgb(255 206 98);
   -webkit-mask-position: center;
   mask-position: center;
