@@ -3,4 +3,4 @@
 # kept in the `ui-skin-*` namespace the other skin plugins use.
 - insert:
     - id: ui-skin-amiya-wallpaper
-      name: 'dsh-amiya-wallpaper'
+      name: 'dsh-arknights-theme'
