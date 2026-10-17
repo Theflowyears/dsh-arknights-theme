@@ -16,7 +16,7 @@ a coat of theme paint.
 **预构建包（推荐） / Prebuilt tarball (recommended)**
 
 ```sh
-dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.1/dsh-arknights-theme-1.0.1.tgz
+dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.2/dsh-arknights-theme-1.0.2.tgz
 ```
 
 **从仓库安装 / From the repository**
@@ -95,7 +95,7 @@ This is the manual: what the package is made of, what is measured per wallpaper,
 glyph is used, how to rebuild it, and where its limits are. Installation and the highlight reel
 live on the repository front page.
 
-- 版本 / Version: **1.0.1**
+- 版本 / Version: **1.0.2**
 - 适用 / Requires: DSH Web，`@deepseek-ai/cordis` 4.x
 - 许可 / Licence: 代码 MIT，美术素材不在 MIT 范围内（见 [版权与署名](#版权与署名--rights-and-credit)）
 
@@ -293,9 +293,18 @@ rather than spread across the twelve files as a guess.
 ## 已知边界 / Known limits
 
 - **皮肤的许多选择器锚在宿主 CSS 模块的类名尾部**（如 `[class$='_titleGroup']`）。
-  这些局部名不是公开契约：DSH 升级若改名，对应的装饰会**静默失效**（不会报错，只是不生效）。
+  这些局部名不是公开契约：DSH 升级若改名或**改了嵌套层级**，对应的装饰会失效。
+  1.0.2 就是为此发的：DSH 0.2.0-rc.2 把新会话按钮的图标挪进了 `newSessionContent`，并把
+  工具数据栏多渲染出一种没有 `_anchor` 的紧凑形态，两处装饰因此错位。现在两条路径都覆盖，
+  并且构建里加了 `check-anchors.mjs`——它对着**已安装的 DSH** 逐个核对类名尾部、`data-*`
+  属性与结构契约，宿主哪次升级挪了东西会直接让构建失败，而不是安静地少一块装饰。
   Many selectors anchor on the tail of the host's CSS-module class names. Those local names are
-  not a public contract; if a DSH release renames one, that decoration stops applying — silently.
+  not a public contract; if a DSH release renames or re-nests one, that decoration breaks. 1.0.2
+  exists for exactly that: DSH 0.2.0-rc.2 moved the new-session icon inside `newSessionContent` and
+  added an anchor-less compact shape for the stats bar. Both shapes are handled now, and the build
+  runs `check-anchors.mjs`, which checks every class tail, `data-*` attribute and structural
+  contract against the **installed** DSH — a host upgrade that moves something fails the build
+  instead of silently dropping a decoration.
 - 选择界面、设置界面、对话框只做**颜色、描边与圆角**，不改布局：那三处是宿主自己的版面。
   The picker chrome, settings screen and dialogs are only re-coloured — their layout is the
   host's own, and stays that way.
