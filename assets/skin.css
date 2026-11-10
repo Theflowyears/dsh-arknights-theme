@@ -62,7 +62,11 @@ html[data-amiya-skin='1'] body::before {
   background-size: cover, cover, cover;
   background-position: center center, center center, center center;
   background-repeat: no-repeat, no-repeat, no-repeat;
-  background-attachment: fixed, fixed, fixed;
+  /* No `background-attachment: fixed` here. It used to be declared, and it was pure cost: this layer
+     is already `position: fixed` and viewport-sized, so its padding box never scrolls — the attachment
+     only made the compositor re-resolve the background against the scroll offset on every frame. On a
+     desktop-sized (or 5K) window over a 2560px picture that is the most expensive thing on the page,
+     and it bought nothing. */
 }
 
 /* The generated assets come in a 16:9 and a 3:4 cut. Below 3:2 the wide cut would
@@ -1039,6 +1043,110 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-dock {
   color: rgb(198 206 216 / 74%);
 }
 
+/* --- 20b. Importing a local picture ----------------------------------------------- */
+/* The picker's own row, between the grid and the immersion dial: one button, one hidden file input,
+   and a line of status. It sits inside the picker rather than in the host's chrome because the picker
+   is already the "which picture" surface — a second entry point for the same question would be the
+   confusing shape, not the convenient one. */
+.amiya-picker__import {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 12px;
+  border-bottom: 1px solid rgb(242 181 68 / 12%);
+}
+/* The native control is the only thing on the page that can open a file dialog, so it stays in the
+   DOM — just not in the layout, and out of the tab order (the button beside it takes the focus). */
+.amiya-picker__file {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.amiya-picker__import-btn {
+  flex: none;
+  padding: 7px 14px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgb(255 214 140 / 96%);
+  background: rgb(242 181 68 / 12%);
+  border: 1px solid rgb(242 181 68 / 40%);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+.amiya-picker__import-btn:hover:not(:disabled) {
+  color: rgb(255 226 168);
+  background: rgb(242 181 68 / 22%);
+  border-color: rgb(242 181 68 / 70%);
+}
+.amiya-picker__import-btn:disabled {
+  cursor: progress;
+  color: rgb(242 181 68 / 60%);
+  border-color: rgb(242 181 68 / 26%);
+}
+.amiya-picker__import-hint {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  color: rgb(198 206 216 / 76%);
+  text-overflow: ellipsis;
+}
+.amiya-picker__import-hint.is-error {
+  color: rgb(242 140 128 / 92%);
+}
+
+/* An imported cell is marked, and carries its own remove control: the shipped twelve can be chosen
+   but not deleted, and the two must not look alike. */
+.amiya-picker__cell.is-imported {
+  border-color: rgb(143 208 255 / 40%);
+}
+.amiya-picker__cell.is-imported:hover {
+  border-color: rgb(143 208 255 / 72%);
+}
+.amiya-picker__cell.is-imported.is-active {
+  border-color: rgb(143 208 255 / 86%);
+  box-shadow:
+    0 0 0 1px rgb(143 208 255 / 34%),
+    0 10px 26px -14px rgb(143 208 255 / 50%);
+}
+.amiya-picker__remove {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  line-height: 1;
+  color: rgb(255 255 255 / 92%);
+  background: rgb(4 6 9 / 78%);
+  border: 1px solid rgb(242 140 128 / 52%);
+  border-radius: 7px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+/* Revealed on hover *and* on keyboard focus, so it is not a mouse-only affordance. */
+.amiya-picker__cell:hover .amiya-picker__remove,
+.amiya-picker__cell:focus-within .amiya-picker__remove,
+.amiya-picker__remove:focus-visible {
+  opacity: 1;
+}
+.amiya-picker__remove:hover {
+  background: rgb(122 32 24 / 92%);
+  border-color: rgb(242 140 128 / 88%);
+}
+
 /* --- 21. The illustrator credit, collapsed ---------------------------------------- */
 /* A native <details>, so "折叠" costs no state and no keyboard handling of its own: the
    summary is the disclosure, the list is its content, and the whole thing stays out of
@@ -1748,7 +1856,7 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-approval-key] [cl
   filter: drop-shadow(0 0 0.5px rgb(74 44 0)) drop-shadow(0 0 0.5px rgb(74 44 0));
 }
 
-/* --- 23. The question card is signed too ------------------------------------------ */
+/* --- 22b. The question card is signed too ------------------------------------------ */
 /* The card that offers the user a choice ends in two buttons — 跳过本题 and 提交 — inside
    `footerActions`, and it is anchored by its own `data-question-key` (the question flow's
    root). Same treatment as the approval panel: each signature rides *inside* its button
@@ -1794,5 +1902,172 @@ html[data-amiya-skin='1'] [data-question-key] [class$='_footerActions'] > button
   -webkit-mask-image: url('data:image/png;base64,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');
   mask-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAAlCAMAAAC9MRGkAAAC0FBMVEVMaXEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAuiCnAAAA73RSTlMA/fv5/gT8AQID+gcK9BQZ6gYc7ha60EXgEFY5l2EStOfz4cuPoSoI9wWEJkOmG9spESORaa/Bnh0NX6o9C9HxGpNHhuQVw/BNeafActSObs7rhT6aqDZR+KMosUG/VO1AXD9alN6V3zMTY4fyz9cr7E4MiNz1orjS9jedmc2z4yy2xEJ9ktoef5YnWeJK1V6cUzipc0lSmERbsi+udNYXgspMUDwxJMm7itg0flhGcDU708dV3U+wYokwDzKfgQ6DYLkfGLdnenZX5QmtkJtoJWaMtS5kvXjZxntl7751OktdIsyAoMghb3xq6bzmq0G8X64AAAAJcEhZcwAADsQAAA7EAZUrDhsAAAWSSURBVFjDvVjjnyNLFL2ddKeqorFt7xg7tmfWtm3btm3bNp5t27z/wqtOp2cyu+83yM5OfUjSXd11UefecyoAzRgEzCH4txFo3Q1C+VAnX/og4FWrR/GhUTVGlW8nf+ekt1ibOHBLF1lT/E/YA/6TUMZDn+zwsfeU3e6ey9/u3LcN7MN8rPTK/td0lcfOXYDuBSEj8gTkQ0TNRmMb7EK69j6BapzZnufdZ90Hw7hhrWe/d8cU+c5IX0JefgboXJweAYWCphwmhDkGDRgQPPQTjxijPMnYy4cAhSfuOAcgwxOnprqL2hOdz7hGWSYkiRFC2gADTlU4Q4LfAhG1N7ZuN3OTchWStqpCnoL+uCCcDUcdjp/Arwil0KaDQMRP+GuAI4feVqgLvU0dMJxAQRQFEXtAa4KumakkFDpoUNTfqyjDH1rNAdLsjSQMJrnw7a+F8r/wUas4wI0r27hwYdPLMcp2LnaZJeJNyJ+H11/IAV6zlDELe5AI88XMuOXpzk1WAIV9+GbKpbBZf4ChatpFoPZHLanoXbGrwxw3dy1icbRrE69J0K4ANWcZOPxc8ecNreePdjggR62knBlKEq6/viN1/TROI4Jjv6VdjE28KsGZYAzsy3FA2O3HiOPat6Dx8ITzfEsKX1OjYeeqtHH7XWQCM11J3hS7ebWxGekfPREnlsv7zjtuLeJlL9WBxluwJWj1IvFYysbUtI4hQdw0Cp0WLxs90KwgiTUqJnjUcEGLud8puGPwvYCmweAkcQZgtDHTkrK8U3tz98OFg6bM1IsKc4/1TIvu4RClLK5uS2PVH+6m6zQ334p7CsfXIrr5W1PgdSDx+fcps+LMMPK9W90OxTtq0DLEsuKZATu+ikk0KE/RphmMF//k25cx5Dx/XCWEBEfeDQL8BmUeWRIb3TXM1+FZPMiXTr09tvvd7zNVq5iOHDusqlforj1JOdZlpWY2cgKjfB01J+9CXbIZ3EQM+9BF3kjtMPcFkWMLn6sI501jPnXUoSXjgslz3u6Ko+EOagCsOYGrqSQ5PnE82qT6tkPh/RF4rR1kV0zf2/XCbCk/y3TumaZEfU5aZZqpY2iPwccy/KU6003GLYNChSRPekRyHrp86W8TIoPhiCvlG0Sy+HMpMNkyXa8L2r3Dgxer9lX7xXqpb7HmcCepFxdM1pwEwuNEnJYJ1Nb+GgGzrE3cwiPH3cuONCxG5rPMt/Z8lNWybLolvO0RWt3FQQH/qFNfo9Brtq19CXwCURerZERZlnbG1BxgpPDVGKC2ZUlbqBg4MAcezOqnR9Qt+KbamUBJKWLe6AZaiwJNQ6y0BR2F3vE1ZiCnRNM6y8aoXENarrcmXRNQM/7xVI4f3bgtBX0QT/e1VbuUE0JXPcavsHWAq6R7pXfYQx12M4LXkN72a0Pz71cwuGi264MJ3kXBFhRraiaBE63PKC/JRSjO6t8A9KxkW+Wcc3s1uD4GYCm6eNhNk5kYOcUs+0/gjhsKGr1G55YgnwWYZXAJ6jCkI4pB3iDZxu+fNSCveAR+3iGJ31+jw4N2C4UhWHNX9t745NH8SI2cAlE3sSghUZ3fs2qtjreeNxrGDylyveMX2cpB1S+3v90Z8MCg0tBvz475JdeS/uCARfLSPXPnDjq6eeTgDekm7hD2fA1skS3BQA3qsWzoAaVTEnA22C2TSgrm9VT6Ngr7fTdkgOT9SieFQgSdqEz0yjY0LArX8dx+0GG1Ui0nVvvH5JEpydP7VIb6echyQ+4e+SsD9aiO+DhvBrY9hYDrIW4/pItNVuiLCEXLZxStY0oZeM7dr342dIbb/I+Gb3sq325ofwsKGG2A1jofcR7g/U+GPamXQjYM+0xzIZDR7XRpuczYrfwvRENpYRUs5H9aG10dngOtdUD7D0u/oqhxgq8oAAAAAElFTkSuQmCC');
   filter: drop-shadow(0 0 0.5px currentColor) drop-shadow(0 0 4px rgb(242 181 68 / 30%));
+}
+
+/* --- 23. The task ledger is legible --------------------------------------- */
+/* The host's todo panel — the row that reads "任务 · 3 已完成，1 进行中，2 待处理" and expands into the
+   list below the composer — was the one surface the skin left alone, and on a wallpaper it became
+   unreadable. Its own stylesheet declares `background: var(--dsw-specific-menu)` with no fallback,
+   and `--dsw-specific-menu` is the strong glass: solved to sit between 0.58 and 0.84 opacity at the
+   immersive end of the dial (the user's default is 20, which lands near the thin end). So over the
+   picture the panel was roughly 60% translucent while its three text tokens were all the *tertiary*
+   label colour — and the complaint is exactly what those two facts produce: it melts into the
+   background, and the collapse affordance is a bare chevron in tertiary grey at the far edge.
+
+    It is not a dialog (`section[data-testid='todo-panel']`, mounted in `conversation.input.dock`),
+   so the near-opaque pinning section 14 does for `[role='dialog']` never applied to it. Fixing it by
+   raising the global menu glass would have made every menu and selector heavy at full immersion,
+   where the point of the dial is to show the picture — so this pins the panel itself instead.
+
+   Anchored on `data-testid`, not on the module hash: the class prefix (`DXuOLW_`) is regenerated per
+   host build, while the test id is part of what the host ships and names. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] {
+  /* Solid enough that nothing behind it competes with the text, still the skin's own veil colour so
+     it reads as one material with the composer card above it. */
+  --dsh-amiya-ledger-alpha: 96%;
+  background: rgb(9 12 17 / var(--dsh-amiya-ledger-alpha));
+  border: 1px solid rgb(242 181 68 / 22%);
+  box-shadow: var(--dsh-elevation-panel), inset 0 1px 0 rgb(255 255 255 / 5%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-testid='todo-panel'] {
+  background: rgb(252 253 254 / var(--dsh-amiya-ledger-alpha));
+  border-color: rgb(146 100 12 / 30%);
+  box-shadow: var(--dsh-elevation-panel), inset 0 1px 0 rgb(255 255 255 / 60%);
+}
+/* The header is the only control on the panel — clicking it collapses the list — and it was drawn
+   in tertiary grey like a caption. Give it the primary label, and let the hover read as a target. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_header'] {
+  color: var(--dsh-amiya-ink, rgb(249 250 251));
+}
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_title'] {
+  letter-spacing: 0.06em;
+  color: var(--dsh-amiya-ink, rgb(249 250 251));
+}
+/* The count line carries the actual state ("… 2 待处理"), so it gets the amber accent rather than the
+   host's tertiary grey. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_progress'] {
+  color: rgb(242 181 68 / 92%);
+  font-variant-numeric: tabular-nums;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-testid='todo-panel'] [class$='_progress'] {
+  color: rgb(122 82 8 / 92%);
+}
+/* The collapse affordance: the host's chevron is 14px tertiary grey at the panel's far edge, which
+   is why "where do I close this" was not obvious. Same glyph, but it now reads as a button — a
+   bordered hit area, brighter ink, and a visible rotation when open. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_chevron'] {
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  color: rgb(242 181 68 / 88%);
+  border: 1px solid rgb(242 181 68 / 34%);
+  border-radius: 7px;
+  background: rgb(242 181 68 / 8%);
+  transition: background 120ms ease, color 120ms ease, transform 160ms ease;
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-testid='todo-panel'] [class$='_chevron'] {
+  color: rgb(122 82 8 / 90%);
+  border-color: rgb(146 100 12 / 36%);
+  background: rgb(146 100 12 / 10%);
+}
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_header']:hover [class$='_chevron'] {
+  color: rgb(255 206 98);
+  background: rgb(242 181 68 / 18%);
+}
+/* Expanded, the chevron points down; collapsed, up. The host swaps the icon rather than rotating
+   it, so this only states the direction the glyph already has. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_header'][aria-expanded='true'] [class$='_chevron'] {
+  transform: rotate(180deg);
+}
+/* The rows themselves: the host paints every one in secondary/tertiary grey. Status is the thing a
+   reader scans for here, so each row's dot keeps the host's state colour while the text rises to the
+   skin's own ink, and a finished item dims rather than being struck through invisibly. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'] {
+  color: var(--dsh-amiya-ink-2, rgb(195 201 210));
+}
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'][data-status='completed'] {
+  color: var(--dsh-amiya-ink-4, rgb(148 156 166));
+}
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'][data-status='in_progress'] {
+  color: var(--dsh-amiya-ink, rgb(249 250 251));
+}
+/* The lead checklist glyph sat in the same tertiary grey as the counts; make it the panel's mark. */
+html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_lead'] {
+  color: rgb(242 181 68 / 86%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-testid='todo-panel'] [class$='_lead'] {
+  color: rgb(122 82 8 / 86%);
+}
+
+/* --- 24. The desktop window ------------------------------------------------ */
+/* DSH Desktop marks its own shell on <html> — `data-windows-titlebar` on Windows, `data-platform`
+   everywhere — and the layout package reacts to both. Three of its reactions collide with a skin that
+   paints a picture behind the interface, and none of them can be fixed from the web profile side:
+
+   1. On Windows the frame itself is given `background: var(--dsw-specific-sidebar-fill)`. That token
+      is the *strong glass* this skin solves per wallpaper (0.52–0.92 alpha), so the desktop build
+      paints a full-window glass plate over the picture: the wallpaper reads washed out on Windows
+      while the same build on macOS (`.frame { background: 0 0 }`) and the browser do not. The strip
+      at the top gets that fill from its own pseudo-element anyway, so the plate is pure duplication.
+   2. The top `--dsh-windows-titlebar-height` band is a drag region, and anything fixed covers it.
+      The picker is a full-window overlay, which made the window impossible to move while it was open
+      and dimmed the window controls with the same backdrop the panel uses.
+   3. `.centerCol` is given a 16px rounded top-left corner on Windows; the skin's own corners are
+      solved per surface, so nothing needs doing there — noted so the next reader does not "fix" it.
+
+   Nothing below changes layout: the frame keeps its padding, the columns keep their geometry, and on
+   a host without these attributes every rule here is inert. */
+html[data-amiya-skin='1'][data-windows-titlebar] [class*='_frame'] {
+  /* Transparent rather than the glass plate: the wallpaper layer (body::before) is the picture, and
+     the titlebar strip repaints itself from its own pseudo-element. */
+  background: transparent !important;
+}
+/* The strip keeps the same material as the sidebar, and takes the hairline the rest of the chrome
+   uses so it reads as this skin's titlebar rather than as a foreign band above it. */
+html[data-amiya-skin='1'][data-windows-titlebar] [class*='_frame']::before {
+  border-bottom: 1px solid rgb(242 181 68 / 22%);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 30%);
+}
+html[data-amiya-skin='1'][data-windows-titlebar] body:not([data-ds-dark-theme]) [class*='_frame']::before {
+  border-bottom-color: rgb(146 100 12 / 26%);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 40%);
+}
+/* The picker stands down from the titlebar band, using the host's own clearance variable — declared
+   only under `data-windows-titlebar`, so the fallback is what runs everywhere else. The panel's height
+   budget shrinks by the same amount, or the bottom row would be clipped on short windows. */
+html[data-amiya-skin='1'] .amiya-picker {
+  top: var(--dsh-frame-top-clearance, 0px);
+}
+html[data-amiya-skin='1'] .amiya-picker__panel {
+  max-height: calc(100vh - 96px - var(--dsh-frame-top-clearance, 0px));
+}
+/* A window drag region only ever belongs to the titlebar. If a future host wraps one of these
+   surfaces in a drag strip, the control inside it must still take the click. */
+html[data-amiya-skin='1'] .amiya-picker,
+html[data-amiya-skin='1'] .amiya-picker *,
+html[data-amiya-skin='1'] [data-slot='conversation.composer.dock'] * {
+  -webkit-app-region: no-drag;
+}
+/* The sidebar's own controls, written with the dialog stand-down every other sidebar-scoped rule here
+   uses: a dialog that renders inside the column must not inherit this either. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) button,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) input,
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) a {
+  -webkit-app-region: no-drag;
+}
+/* The skin's own transitions, stood down for readers who ask the system for less motion. Scoped to
+   the elements that declare them rather than to `*`: a universal rule here would also flatten the
+   host's transitions, which is not this skin's business. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-amiya-skin='1'] .amiya-picker__cell,
+  html[data-amiya-skin='1'] .amiya-picker__import-btn,
+  html[data-amiya-skin='1'] .amiya-picker__remove,
+  html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_chevron'],
+  html[data-amiya-skin='1'] .amiya-step {
+    transition-duration: 0.01ms;
+  }
 }
 

@@ -16,7 +16,7 @@ a coat of theme paint.
 **预构建包（推荐） / Prebuilt tarball (recommended)**
 
 ```sh
-dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.0.4/dsh-arknights-theme-1.0.4.tgz
+dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.1.0/dsh-arknights-theme-1.1.0.tgz
 ```
 
 **从仓库安装 / From the repository**
@@ -95,7 +95,7 @@ This is the manual: what the package is made of, what is measured per wallpaper,
 glyph is used, how to rebuild it, and where its limits are. Installation and the highlight reel
 live on the repository front page.
 
-- 版本 / Version: **1.0.4**
+- 版本 / Version: **1.1.0**
 - 适用 / Requires: DSH Web，`@deepseek-ai/cordis` 4.x
 - 许可 / Licence: 代码 MIT，美术素材不在 MIT 范围内（见 [版权与署名](#版权与署名--rights-and-credit)）
 
@@ -151,6 +151,28 @@ Twelve, each measured once at import time, with the result recorded in `assets/w
 
 实测范围 / Measured ranges: `blurSigma` 16.7–33.3 · `featherRatio` 0.110–0.147 ·
 `saturation` 0.07–0.42 · 12 张 / 12 images, 7.9 MiB 包内 / inside the package.
+
+### 导入自己的图 / Import your own
+
+选择器底部有一行「＋ 导入本地图片」：PNG / JPEG / WebP / GIF / AVIF，单张 ≤ 24 MB，最多 24 张。
+There is a "＋ 导入本地图片" row under the picker's grid: PNG / JPEG / WebP / GIF / AVIF, up to
+24 MB per file, 24 pictures kept.
+
+**导入即解算，用的就是上面那套数字。** 解算器的常量由构建注入（`SOLVER`），页面里的算术是逐行移植，
+所以一张你自己的图会和内置十二张走完全相同的路径——同样的玻璃区间、同样的 OKLCH 墨色求解、同样的
+分析标签（`横屏 · 中间调 · 中饱和 · 暖红`）——而不是"先放着，以后再算"。
+**Solved on import, with the same numbers.** The solver's constants are injected by the build and the
+arithmetic is ported line for line, so your picture goes through exactly the path the shipped twelve
+did: same glass band, same OKLCH ink solve, same analysis label. `check-solver-parity.mjs` compares
+the two implementations number for number on every build.
+
+图片存在 `%TEMP%/dsh-amiya-wallpaper-user`（按内容哈希命名），**不在包目录里**，所以升级或重装不会
+丢，也不会把用户自己的图打进发布的 tarball。文件名不落盘：只有你自己输入的标题会被保存，否则
+显示「导入 01」——相册里的文件名不该出现在别人能读的地方。
+Pictures live in `%TEMP%/dsh-amiya-wallpaper-user`, named by content hash, **outside the package**, so
+they survive an upgrade and can never be swept into a published tarball. File names are not stored:
+only a caption you type is kept, otherwise the row is numbered — a camera roll's names have no
+business being readable by anything else.
 
 ---
 
@@ -309,8 +331,14 @@ rather than spread across the twelve files as a guess.
   The picker chrome, settings screen and dialogs are only re-coloured — their layout is the
   host's own, and stays that way.
 - 壁纸按宽屏与窄屏两种裁切生成；极端超宽比例下会以 `cover` 填充并依赖边缘虚化遮住裁切。
+  导入的图片**不做两种裁切**：它们是原图，两种比例都指向同一个文件，靠 `cover` 填充。
   Two cuts are generated; at extreme aspect ratios the picture is `cover`-fitted and the edge
-  blur hides the crop.
+  blur hides the crop. An imported picture has no second cut — both aspect cases point at the same
+  file and `cover` does the fitting.
+- 导入的图存在临时目录里。系统清理 `%TEMP%` 会把它们一并清掉——这是有意的取舍：它们不该住在
+  包目录或 profile 状态里。
+  Imported pictures live in the temp directory, so a system cleanup of `%TEMP%` takes them too.
+  That is the intended trade: they belong neither in the package directory nor in profile state.
 - 本仓库的构建产物经过量化验收（对比度矩阵、资源完整性、结构检查），但**没有任何自动化测试
   能代替肉眼**：配色是否好看，最终以你眼睛为准。
   The build is verified quantitatively (contrast matrix, asset integrity, structural checks),
