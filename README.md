@@ -2,6 +2,9 @@
 
 > 一款专为粥批定制的明日方舟主题拓展包，旨在为每一位明日方舟提供最沉浸式的DSH体验，无论是背景里的阿米娅还是各处细节中的干员签名，都在提醒你一件事：博士，您还有许多事情需要处理。 现在还不能休息哦。
 
+**支持自定义壁纸：导入你自己的图，导入即按同一套算法解算玻璃与文字色。**
+**Bring your own wallpaper: import your own picture and its glass and ink are solved on import, with the same algorithm as the built-in set.**
+
 **为《明日方舟》玩家在 DeepSeek Harness Web 上构建沉浸感。**
 **Building immersion for Arknights players on the DeepSeek Harness Web GUI.**
 
@@ -11,12 +14,18 @@ A full-screen picture, glass and ink solved from each image, Rhodes Island icono
 sign-off style interactions — together they feel like working inside Rhodes Island, rather than
 a coat of theme paint.
 
+| 你能做的 / What you can do | 说明 / Notes |
+| --- | --- |
+| **导入本地图片当壁纸** / import a local picture | PNG · JPEG · WebP · GIF · AVIF，单张 ≤ 24 MB，最多 24 张；导入即解算 |
+| 在 12 张内置壁纸间切换 / switch the twelve | 每张的边缘虚化、羽化、玻璃浓度都是量出来的 |
+| 调沉浸度 / dial the immersion | 0–100，滑杆旁的对比度读数是实测值 |
+
 ## 安装 / Install
 
 **预构建包（推荐） / Prebuilt tarball (recommended)**
 
 ```sh
-dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.1.0/dsh-arknights-theme-1.1.0.tgz
+dsh plugin add https://github.com/Theflowyears/dsh-arknights-theme/releases/download/v1.1.1/dsh-arknights-theme-1.1.1.tgz
 ```
 
 **从仓库安装 / From the repository**
@@ -95,7 +104,7 @@ This is the manual: what the package is made of, what is measured per wallpaper,
 glyph is used, how to rebuild it, and where its limits are. Installation and the highlight reel
 live on the repository front page.
 
-- 版本 / Version: **1.1.0**
+- 版本 / Version: **1.1.1**
 - 适用 / Requires: DSH Web，`@deepseek-ai/cordis` 4.x
 - 许可 / Licence: 代码 MIT，美术素材不在 MIT 范围内（见 [版权与署名](#版权与署名--rights-and-credit)）
 

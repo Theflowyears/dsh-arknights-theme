@@ -1,7 +1,7 @@
 {
   "name": "dsh-arknights-theme",
-  "version": "1.1.0",
-  "description": "为《明日方舟》玩家在 DSH Web 上构建沉浸感：12 张整屏壁纸（按画面自适应的边缘虚化）、按每张图解算的玻璃与文字色、罗德岛图标体系，以及签字式的授权与选择交互。 / Building immersion for Arknights players on the DSH Web GUI: twelve full-screen wallpapers with per-image edge blur, glass and ink solved from each picture, Rhodes Island iconography, and sign-off style approval and choice interactions.",
+  "version": "1.1.1",
+  "description": "支持导入本地图片作壁纸（导入即解算玻璃浓度与文字色），并内置 12 张按画面自适应的整屏壁纸；罗德岛图标体系与签名式的授权、选择交互。 / Import your own local picture as a wallpaper — glass and ink are solved on import — alongside twelve full-screen wallpapers with per-image edge blur, glass and ink solved from each picture, Rhodes Island iconography, and sign-off style approval and choice interactions.",
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icons/amiya-mark.svg",
