@@ -1,6 +1,6 @@
 {
   "name": "dsh-arknights-theme",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "支持导入本地图片作壁纸（导入即解算玻璃浓度与文字色），并内置 12 张按画面自适应的整屏壁纸；罗德岛图标体系与签名式的授权、选择交互。 / Import your own local picture as a wallpaper — glass and ink are solved on import — alongside twelve full-screen wallpapers with per-image edge blur, glass and ink solved from each picture, Rhodes Island iconography, and sign-off style approval and choice interactions.",
   "type": "module",
   "main": "lib/index.js",

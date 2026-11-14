@@ -104,7 +104,7 @@ html[data-amiya-skin='1'] body[data-ds-dark-theme] {
   --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay, rgb(13 17 23 / 90%));
   --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask, rgb(3 5 8 / 62%));
   --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform, rgb(9 12 17 / 78%));
-  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar, rgb(10 13 18 / 44%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar, rgb(10 13 18 / 86%));
   --dsw-specific-tip: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
   --dsw-specific-input-major: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
   --dsw-specific-bubble: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
@@ -151,7 +151,7 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) {
   --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay-l, rgb(250 251 252 / 94%));
   --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask-l, rgb(24 26 30 / 34%));
   --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform-l, rgb(247 248 250 / 80%));
-  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar-l, rgb(247 248 250 / 52%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar-l, rgb(247 248 250 / 88%));
   --dsw-specific-tip: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
   --dsw-specific-input-major: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
   --dsw-specific-bubble: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
