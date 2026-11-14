@@ -408,7 +408,7 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_chevron'],
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_arrow'],
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class$='_arrowOpen'] {
-  color: var(--dsh-amiya-ink-2, rgb(200 212 226 / 92%));
+  color: var(--dsw-alias-label-secondary, rgb(200 212 226 / 92%));
 }
 html[data-amiya-skin='1']
   [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog']))
@@ -1932,18 +1932,26 @@ html[data-amiya-skin='1'] [data-testid='todo-panel'] {
   -webkit-backdrop-filter: none;
 }
 html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) [data-testid='todo-panel'] {
-  background: rgb(252 253 254 / var(--dsh-amiya-ledger-alpha));
+  /* Off-white rather than near-white: a 252/253/254 plate over a bright wallpaper reads as glare,
+     and the panel is the one surface here with no picture behind it to justify the brightness. */
+  background: rgb(248 249 251 / var(--dsh-amiya-ledger-alpha));
   border-color: rgb(146 100 12 / 30%);
   box-shadow: var(--dsh-elevation-panel), inset 0 1px 0 rgb(255 255 255 / 60%);
 }
-/* The header is the only control on the panel — clicking it collapses the list — and it was drawn
-   in tertiary grey like a caption. Give it the primary label, and let the hover read as a target. */
+/* Text on this panel goes through the `--dsw-alias-label-*` tokens, never through a raw
+   `--dsh-amiya-ink*` name. The ink lives in two sets — `--dsh-amiya-ink…` for the dark palette and
+   `--dsh-amiya-ink…-l` for the light one — and a rule that names the dark set directly resolves, in
+   the light palette, to the *dark palette's* near-white; on this near-white plate that is invisible
+   text. That is exactly what shipped in 1.1.1: the counts (an explicit dark amber) were readable and
+   every row label was not, which is the "3 已完成, rest blank" screenshot. The tokens below are
+   remapped per palette in the two palette blocks, so one declaration is correct in both.
+   `check-ink-pairs.mjs` now fails the build on a raw ink reference outside those blocks. */
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_header'] {
-  color: var(--dsh-amiya-ink, rgb(249 250 251));
+  color: var(--dsw-alias-label-primary, rgb(249 250 251));
 }
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_title'] {
   letter-spacing: 0.06em;
-  color: var(--dsh-amiya-ink, rgb(249 250 251));
+  color: var(--dsw-alias-label-primary, rgb(249 250 251));
 }
 /* The count line carries the actual state ("… 2 待处理"), so it gets the amber accent rather than the
    host's tertiary grey. */
@@ -1984,15 +1992,15 @@ html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_header'][aria-exp
 }
 /* The rows themselves: the host paints every one in secondary/tertiary grey. Status is the thing a
    reader scans for here, so each row's dot keeps the host's state colour while the text rises to the
-   skin's own ink, and a finished item dims rather than being struck through invisibly. */
+   skin's own ink tiers, and a finished item dims rather than being struck through invisibly. */
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'] {
-  color: var(--dsh-amiya-ink-2, rgb(195 201 210));
+  color: var(--dsw-alias-label-secondary, rgb(195 201 210));
 }
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'][data-status='completed'] {
-  color: var(--dsh-amiya-ink-4, rgb(148 156 166));
+  color: var(--dsw-alias-label-dimmed, rgb(148 156 166));
 }
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_item'][data-status='in_progress'] {
-  color: var(--dsh-amiya-ink, rgb(249 250 251));
+  color: var(--dsw-alias-label-primary, rgb(249 250 251));
 }
 /* The lead checklist glyph sat in the same tertiary grey as the counts; make it the panel's mark. */
 html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_lead'] {
