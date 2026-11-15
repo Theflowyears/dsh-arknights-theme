@@ -104,7 +104,7 @@ html[data-amiya-skin='1'] body[data-ds-dark-theme] {
   --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay, rgb(13 17 23 / 90%));
   --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask, rgb(3 5 8 / 62%));
   --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform, rgb(9 12 17 / 78%));
-  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar, rgb(10 13 18 / 86%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar, rgb(10 13 18 / 97%));
   --dsw-specific-tip: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
   --dsw-specific-input-major: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
   --dsw-specific-bubble: var(--dsh-amiya-veil-glass, rgb(9 12 17 / 80%));
@@ -151,7 +151,7 @@ html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) {
   --dsw-alias-bg-overlay: var(--dsh-amiya-veil-overlay-l, rgb(250 251 252 / 94%));
   --dsw-alias-bg-mask-1: var(--dsh-amiya-veil-mask-l, rgb(24 26 30 / 34%));
   --dsw-alias-bg-module-platform: var(--dsh-amiya-veil-platform-l, rgb(247 248 250 / 80%));
-  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar-l, rgb(247 248 250 / 88%));
+  --dsw-specific-sidebar-fill: var(--dsh-amiya-veil-sidebar-l, rgb(248 249 251 / 97%));
   --dsw-specific-tip: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
   --dsw-specific-input-major: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
   --dsw-specific-bubble: var(--dsh-amiya-veil-glass-l, rgb(247 248 250 / 86%));
@@ -214,14 +214,16 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
     inset -1px 0 0 rgb(255 255 255 / 6%),
     28px 0 60px -20px rgb(0 0 0 / 55%);
 }
+/* The frost is gone with the transparency. At 0.97 the layer behind it is invisible, so the blur was
+   a full-column `backdrop-filter` — the most expensive thing in the skin — drawing an effect nobody
+   could see. Removed rather than left "just in case": a filter on a column also makes it the
+   containing block for fixed descendants, and section 2's comment is about exactly that trap. */
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog']))::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  -webkit-backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
-  backdrop-filter: blur(32px) saturate(190%) brightness(1.04);
 }
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])):hover {
   border-right-color: rgb(242 181 68 / 34%) !important;
@@ -2074,8 +2076,69 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
   html[data-amiya-skin='1'] .amiya-picker__import-btn,
   html[data-amiya-skin='1'] .amiya-picker__remove,
   html[data-amiya-skin='1'] [data-testid='todo-panel'] [class$='_chevron'],
-  html[data-amiya-skin='1'] .amiya-step {
+  html[data-amiya-skin='1'] .amiya-step,
+  html[data-amiya-skin='1'] .amiya-star {
     transition-duration: 0.01ms;
   }
+}
+
+/* --- 25. The star ask ------------------------------------------------------ */
+/* At the sidebar foot, beside this plugin's own 壁纸 button: the one place in the interface that is
+   always visible, never covered by a dialog, and already where the hand goes at the end of a session.
+   A pill rather than a bare star, because an unlabelled glyph in a row of icons reads as another
+   control — the words 「点个星」 are what make it a request instead of a feature.
+   The glyph is a text star, not a mask: the icon set is Arknights' own artwork, and spending a
+   limited slot on a generic star would be dressing up a link as game art. */
+html[data-amiya-skin='1'] .amiya-star {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px 3px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
+  color: rgb(255 214 140 / 96%);
+  text-decoration: none;
+  background: rgb(242 181 68 / 14%);
+  border: 1px solid rgb(242 181 68 / 42%);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 140ms ease,
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+html[data-amiya-skin='1'] .amiya-star:hover {
+  color: rgb(255 232 178);
+  background: rgb(242 181 68 / 26%);
+  border-color: rgb(242 181 68 / 78%);
+  box-shadow: 0 0 14px rgb(242 181 68 / 42%);
+  transform: translateY(-1px);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-star {
+  color: rgb(122 82 8 / 96%);
+  background: rgb(146 100 12 / 12%);
+  border-color: rgb(146 100 12 / 38%);
+}
+html[data-amiya-skin='1'] body:not([data-ds-dark-theme]) .amiya-star:hover {
+  color: rgb(78 52 4);
+  background: rgb(146 100 12 / 22%);
+  border-color: rgb(146 100 12 / 64%);
+  box-shadow: 0 0 12px rgb(146 100 12 / 30%);
+}
+html[data-amiya-skin='1'] .amiya-star__glyph {
+  font-size: 12px;
+  line-height: 1;
+  filter: drop-shadow(0 0 4px rgb(242 181 68 / 70%));
+}
+html[data-amiya-skin='1'] .amiya-star__text {
+  white-space: nowrap;
+}
+/* A keyboard reader gets the same target a mouse does, and it is a real focusable link. */
+html[data-amiya-skin='1'] .amiya-star:focus-visible {
+  outline: 2px solid rgb(255 206 98);
+  outline-offset: 2px;
 }
 
