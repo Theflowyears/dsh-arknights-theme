@@ -2097,16 +2097,33 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
 }
 
 /* --- 25. The star ask ------------------------------------------------------ */
-/* At the sidebar foot, beside this plugin's own 壁纸 button: the one place in the interface that is
-   always visible, never covered by a dialog, and already where the hand goes at the end of a session.
-   A pill rather than a bare star, because an unlabelled glyph in a row of icons reads as another
-   control — the words 「点个星」 are what make it a request instead of a feature.
+/* The corner of the foot, not a row of it: the ask floats into the top-right of the footer-action
+   list — the right half of the row the Remote pill sits on, which was empty — so the stack keeps four
+   working rows instead of growing a fifth one. Leaving the flow is what deletes its own row; the
+   `top: 5px` centres the 24px pill on that row's 34px seat, and `z-index` puts it above the sibling
+   wrappers it now overlaps in box terms, though not in pixels.
 
-   Sized to its own text and centred, never stretched: the foot's other rows are 34px full-width
-   buttons, and a fifth identical slab is what made the column look cramped. This one is a footnote
-   with a border, one step down in weight and two steps down in width, which is what gives the stack
-   its hierarchy. The `min-height`/`width` here are explicit overrides rather than an accident of
-   specificity — see the `:not(.amiya-star)` exclusions above. */
+   Two known properties of this placement, both accepted deliberately: the corner belongs to whatever
+   row is first, so with the Remote plugin disabled it lands on the 待处理改动 row's right side (where
+   its count sits) instead — the ask is still at the top-right of the block, which is what it is for;
+   and in the 56px rail the Remote icon owns the whole row, so the component marks itself `is-rail`
+   there and stays the centred in-flow row it was.
+
+   A pill rather than a bare star, because an unlabelled glyph in a row of icons reads as another
+   control — the words 「点个星」 are what make it a request instead of a feature. Sized to its own
+   text, never stretched: the foot's other rows are 34px full-width buttons, and a fifth identical
+   slab is what made the column look cramped. The `min-height`/`width` below are explicit overrides
+   rather than an accident of specificity — see the `:not(.amiya-star)` exclusions in section 20b. */
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_footerActions'] {
+  position: relative;
+}
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_footerActions'] > .amiya-star:not(.is-rail) {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  margin: 0;
+  z-index: 2;
+}
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) .amiya-star {
   display: inline-flex;
   align-self: center;
