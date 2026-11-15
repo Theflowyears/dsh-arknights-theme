@@ -2098,16 +2098,23 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
 
 /* --- 25. The star ask ------------------------------------------------------ */
 /* The corner of the foot, not a row of it: the ask floats into the top-right of the footer-action
-   list — the right half of the row the Remote pill sits on, which was empty — so the stack keeps four
-   working rows instead of growing a fifth one. Leaving the flow is what deletes its own row; the
-   `top: 5px` centres the 24px pill on that row's 34px seat, and `z-index` puts it above the sibling
-   wrappers it now overlaps in box terms, though not in pixels.
+   list — the right half of the row the Remote pill sits on, which was empty — so the stack keeps its
+   working rows instead of growing a fifth one. `top: 5px` centres the 24px pill on the 34px row;
+   `z-index` puts it above the sibling wrappers it now overlaps in box terms, though not in pixels.
+
+   **A descendant selector, not a child one — and that is the whole lesson of this section.** The
+   renderer wraps every slot outlet in a `[data-slot]` anchor with `display: contents`. Layout-wise the
+   occupants are flex items of `_footerActions` (contents children are promoted to the parent), but
+   DOM-wise their parent is that anchor — so `> .amiya-star` matched nothing, the float silently
+   no-op'd, and the star stayed a fifth row while everything else about the foot proved the stylesheet
+   had loaded. On this renderer, DOM parent ≠ layout parent: anything reaching a slot occupant from
+   the outside must use a descendant selector, or survive the anchor in the chain.
 
    Two known properties of this placement, both accepted deliberately: the corner belongs to whatever
    row is first, so with the Remote plugin disabled it lands on the 待处理改动 row's right side (where
    its count sits) instead — the ask is still at the top-right of the block, which is what it is for;
    and in the 56px rail the Remote icon owns the whole row, so the component marks itself `is-rail`
-   there and stays the centred in-flow row it was.
+   there and stays a centred in-flow row.
 
    A pill rather than a bare star, because an unlabelled glyph in a row of icons reads as another
    control — the words 「点个星」 are what make it a request instead of a feature. Sized to its own
@@ -2117,7 +2124,7 @@ html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role
 html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_footerActions'] {
   position: relative;
 }
-html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_footerActions'] > .amiya-star:not(.is-rail) {
+html[data-amiya-skin='1'] [class*='_sidebarCol']:not(:has([role='dialog'], [role='alertdialog'])) [class*='_footerActions'] .amiya-star:not(.is-rail) {
   position: absolute;
   top: 5px;
   right: 0;
