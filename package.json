@@ -1,7 +1,7 @@
 {
   "name": "dsh-arknights-theme",
-  "version": "1.1.7",
-  "description": "明日方舟主题美化包：支持导入本地图片作壁纸（导入即解算玻璃浓度与文字色），并内置 12 张按画面自适应的整屏壁纸；罗德岛图标体系与签名式的授权、选择交互。 / Arknights (明日方舟) theme pack: bring your own wallpaper — glass and ink are solved on import — alongside twelve full-screen wallpapers with per-image edge blur, Rhodes Island iconography, and sign-off style approval and choice interactions.",
+  "version": "1.1.8",
+  "description": "一款专为粥批定制的明日方舟主题拓展包：背景里的阿米娅与各处细节中的干员签名都在提醒你——博士，您还有许多事情需要处理，现在还不能休息哦。支持导入本地图片作壁纸（导入即解算玻璃浓度与文字色），内置 12 张按画面自适应的整屏壁纸；罗德岛图标体系与签名式的授权、选择交互。 / An Arknights theme pack for the players of 明日方舟: import a local picture as your wallpaper — glass and ink are solved on import — alongside twelve full-screen wallpapers with per-image edge blur, Rhodes Island iconography, and sign-off style approval and choice interactions.",
   "type": "module",
   "main": "lib/index.js",
   "icon": "./icons/amiya-mark.svg",
